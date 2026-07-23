@@ -1,0 +1,66 @@
+=== L=0.545 N=24 ===
+# certify L=0.545 N=24 R_CUT=3263 primes=[2] dps=25
+G row 1/24 t=11s
+G row 2/24 t=21s
+G row 3/24 t=31s
+G row 4/24 t=41s
+G row 5/24 t=51s
+G row 6/24 t=60s
+G row 7/24 t=68s
+G row 8/24 t=78s
+G row 9/24 t=89s
+G row 10/24 t=100s
+G row 11/24 t=109s
+G row 12/24 t=119s
+G row 13/24 t=127s
+G row 14/24 t=133s
+G row 15/24 t=137s
+G row 16/24 t=142s
+G row 17/24 t=145s
+G row 18/24 t=149s
+G row 19/24 t=151s
+G row 20/24 t=154s
+G row 21/24 t=155s
+G row 22/24 t=157s
+G row 23/24 t=158s
+G row 24/24 t=158s
+prime+pole done t=159s
+float generalized lambda_min = 0.00138315
+CERTIFIED: W >= 0.00124483 ||f||^2 on the explicit 22-dim family (L=0.545, primes [2]). t=160s
+=== L=0.545 N=32 ===
+# certify L=0.545 N=32 R_CUT=4242 primes=[2] dps=25
+G row 1/32 t=14s
+G row 2/32 t=29s
+G row 3/32 t=43s
+G row 4/32 t=56s
+G row 5/32 t=69s
+G row 6/32 t=81s
+G row 7/32 t=92s
+G row 8/32 t=103s
+G row 9/32 t=114s
+G row 10/32 t=130s
+G row 11/32 t=145s
+G row 12/32 t=160s
+G row 13/32 t=173s
+G row 14/32 t=186s
+G row 15/32 t=198s
+G row 16/32 t=210s
+G row 17/32 t=222s
+G row 18/32 t=230s
+G row 19/32 t=237s
+G row 20/32 t=244s
+G row 21/32 t=250s
+G row 22/32 t=255s
+G row 23/32 t=259s
+G row 24/32 t=263s
+G row 25/32 t=267s
+G row 26/32 t=270s
+G row 27/32 t=272s
+G row 28/32 t=275s
+G row 29/32 t=276s
+G row 30/32 t=278s
+G row 31/32 t=279s
+G row 32/32 t=280s
+prime+pole done t=280s
+float generalized lambda_min = 0.00132726
+CERTIFIED: W >= 0.00119453 ||f||^2 on the explicit 30-dim family (L=0.545, primes [2]). t=282s
