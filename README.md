@@ -29,10 +29,15 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 12:38 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 12:50 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **NEW — [`GAPS.md`](GAPS.md)**: six sharp openings found by cross-reading the archive's
+- **NEW — THEOREM A (proven + certified)**: the archimedean Weil form on the
+  prime-free window is *coercive* with certified constant **c₀ ≥ 0.349152** —
+  the quantitative floor missing from the literature (CC 2020 prove only ≥ 0),
+  via an elementary trace-identity + rearrangement proof
+  ([`PROOF-c0.md`](experiments/weil_positivity/PROOF-c0.md)). Gap 1 of GAPS.md: closed.
+- **[`GAPS.md`](GAPS.md)**: six sharp openings found by cross-reading the archive's
   proofs against this session's measurements — incl. the unstated coercivity theorem
   hiding in Connes–Consani 2020, a three-lemma route to a fully proven T1(δ₀), the
   unchecked Carathéodory–Fejér dictionary with CCM 2025, and a candidate new law:
