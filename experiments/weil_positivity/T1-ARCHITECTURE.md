@@ -116,6 +116,33 @@ triples (finite Euler products ↔ truncated forms; their spectral convergence �
 rescue cascade continuing forever). A proof of RH along this axis is exactly the
 statement that the rescue cascade never fails.
 
+## Completion-criticality (rescue cascade, quantified)
+
+`rescue_cascade.txt`: λ_min of G + Σ_{n≤m} Q_n as prime powers accumulate, per L:
+
+```
+L=0.60: arch −0.00039 → +2: −0.04300 → +3: +0.00008
+L=0.80: arch −0.29495 → +2: −0.24677 → +3: −0.09522 → +4: +0.00000
+L=1.00: arch −0.52824 → … → +5: −0.09489 → +7: −0.00000
+L=1.20: arch −0.72493 → … → +8: −0.18545 → +9: −0.00000 → +11: −0.00000
+```
+
+Three exact-looking regularities (numerical, N=48, resolution ~10⁻⁵):
+1. **Every proper truncation is strictly indefinite** — often by large margins
+   (−0.1 … −0.5) — including the two-prime truncations well inside their windows.
+2. **Individual prime powers are non-monotone**: adding n=4 at L=1.20 *lowers*
+   λ_min (−0.409 → −0.490); adding n=2 at L=0.60 lowers it. There is no term-by-term
+   positivity mechanism; only the complete sum works.
+3. **Adding the LAST in-window prime power lands λ_min at 0 to 5–6 digits, at every
+   window tested** ("completion-criticality"): the explicit-formula weights
+   (log p)p^{−k/2} are exactly the weights that complete each window to the boundary
+   of positivity. Consistent with exact criticality (inf = 0 for each L ≳ 0.6) or
+   with positivity that is merely below our 10⁻⁵ resolution; either way the
+   one-parameter family of completed-window forms rides the null boundary uniformly
+   in L — a finite-window face of Λ = 0 sharpness, and a natural induction target:
+   positivity propagates from window to window with zero slack, each threshold
+   crossing paid for exactly by the arriving prime.
+
 ## Honest status
 
 - Lemma 1: proven, sharp, confirmed by two independent numerical measurements.
@@ -124,6 +151,8 @@ statement that the rescue cascade never fails.
 - v2 invariant μ: exact reformulation of T1; numerically true with quantified
   headroom; open as a theorem. The needed inequality is archimedean-metric control
   of a single explicit rank-structured operator.
-- Just-in-time rescue: new observed structure (two-prime collectivity), directly
-  motivating the multi-prime version of μ as the object to control.
+- Just-in-time rescue + completion-criticality: new observed structure — truncations
+  are indefinite, completions are critical, term-by-term monotonicity is false. The
+  object to control is the *completed-window* family as a whole (equivalently the
+  multi-prime μ), not individual prime perturbations.
 - Nothing here proves RH, and none of it is claimed to.
