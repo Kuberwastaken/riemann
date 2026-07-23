@@ -29,9 +29,15 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 12:16 UTC. This section is refreshed regularly; the commit
-history and `logs/LOG.md` carry the fine-grained record. Rescue certification
-(L=0.62, 22-dim family) currently running._
+_Last updated: 2026-07-23 12:18 UTC. This section is refreshed regularly; the commit
+history and `logs/LOG.md` carry the fine-grained record._
+
+- **NEW — Certified Result 5, the rescue phenomenon machine-verified**
+  (`experiments/weil_positivity/rescue_certify.py`): on one explicit 22-dim family
+  at L=0.62, a certified negative archimedean direction (vᵀGv = −0.02776 ± 6e-9)
+  AND certified total-form coercivity (W ≥ 2.06e-5·‖f‖², primes {2,3}) — rigorous
+  proof that on this family, Weil positivity is *created by the prime terms*.
+  Consolidated writeup: [`experiments/weil_positivity/NOTE.md`](experiments/weil_positivity/NOTE.md).
 
 - **NEW — Certified Result 1**: rigorous (Arb ball-arithmetic, verified integration +
   certified Cholesky) — **W(f) ≥ 0.0726‖f‖² on an explicit 14-dim family at L=0.45**,
