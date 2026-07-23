@@ -108,6 +108,12 @@ zeros, for every member of each family. These are subspace statements — T1 pro
 (all of L²[−L, L]) remains open; the L = 0.545 certificate nearly attains the
 full-space infimum, so the family is not the bottleneck there.
 
+**Certified rescue (L = 0.62, 22-dim family, primes {2,3}).** On one rigorously
+assembled matrix set: (a) an explicit vector with certified
+vᵀGv = −0.02776113 ± 5.8×10⁻⁹ (archimedean part indefinite on the family), and
+(b) certified W ≥ 2.0624×10⁻⁵‖f‖² on the whole family. Positivity created by the
+prime terms, machine-verified.
+
 ## 6. Structural discoveries (numerical)
 
 **Just-in-time rescue.** Truncations of the prime sum go indefinite essentially
