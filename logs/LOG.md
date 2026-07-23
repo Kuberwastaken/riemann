@@ -58,3 +58,4 @@ record, this file is the narrative).
   - Honesty note: no numerical experiment tests RH itself (all heights carry verified zeros); the value is the decomposition — where perturbation ends (0.39), where archimedean positivity dies (0.59), and the shape of the null cone.
   - All artifacts committed per-file: engine, zeros table, sweep CSV + raw output, profiles.npz, sweep.png, profiles.png, RESULTS.md; ATTACK.md §12 addendum added.
 - **11:18** — Observability tick: tree clean, 178 PDFs / 6 notes unchanged, no agents running, experiment artifacts all committed. Housekeeping: corrected three drifted timestamp estimates in this log/README (11:25→11:12, 11:30→11:15, 11:35→11:18) and replaced the stale "Next" line in README with the actual next step (T1 tracks).
+- **11:23** — Observability tick: heartbeat. Tree clean, counts unchanged (178 PDFs, 6 notes), no agents running.
