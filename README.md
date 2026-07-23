@@ -10,8 +10,8 @@ with **[`FOR-SOLVERS.md`](FOR-SOLVERS.md)**.
 > **178 primary sources** in [`papers/`](papers/), each its own commit · **6 annotated
 > bibliographies** in [`notes/`](notes/) · a survey ([`BREAKDOWN.md`](BREAKDOWN.md)), a
 > deep-dive attack map ([`ATTACK.md`](ATTACK.md)), and a Weil-positivity experiment
-> ([`experiments/`](experiments/)). Collected and analyzed 2026-07-23; prepared for
-> public release 2026-07-24.
+> ([`experiments/`](experiments/)). Collected, analyzed, and prepared for public
+> release 2026-07-23.
 
 ## The one-paragraph answer
 
