@@ -29,23 +29,28 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 10:34 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 10:39 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **Phase:** collection — 4 of 6 research agents still searching/downloading.
-- **Complete:**
-  - `recent/` ✅ 15 verified PDFs + `notes/recent.md` — 2019–2026 frontier:
-    Guth–Maynard ecosystem, Connes–Consani 2025–26 arc (zeta spectral triples,
-    Feb 2026 "Letter to Riemann"), Zhang status, Lean/Mathlib formalization.
-  - `spectral/` ✅ 34 verified PDFs + `notes/spectral.md` — Hilbert–Pólya program
-    end-to-end: Montgomery/Odlyzko GUE, Berry–Keating xp line, BBM 2017 controversy,
-    Sierra corpus, Srednicki, Keating–Snaith/CFKRS moments, FHK extremes,
+- **Phase:** collection **complete** (6/6 agents) → synthesis in progress.
+- **Archive:** **178 verified PDFs (161 MB)** + **6 annotated bibliographies
+  (~2000 lines)**, every artifact its own commit:
+  - `spectral/` 34 — Hilbert–Pólya end-to-end: Montgomery/Odlyzko GUE, Berry–Keating,
+    BBM 2017 controversy, Sierra, Srednicki, moments (Keating–Snaith/CFKRS), FHK,
     Katz–Sarnak, Selberg analogy, experimental realizations.
-- **In flight:** algebraic-geometric 39 · criteria 44 · analytic-progress 27 ·
-  surveys-expository 18 — 177 PDFs on disk total, committed per-artifact as each
-  agent lands (avoids truncated mid-download files).
-- **Next:** remaining category passes, then `BREAKDOWN.md` — the synthesis of which
-  approaches could actually work.
+  - `analytic-progress/` 27 — critical-line proportions (HL 1921 → PRZZ 41.7%),
+    zero-density (Guth–Maynard + 2025–26 frontier, ANTEDB), zero-free regions
+    (incl. BTY 2026 record), de Bruijn–Newman, Lindelöf, verification, Zhang.
+  - `algebraic-geometric/` 39 — Weil 1941 → Deligne (numdam) → standard conjectures →
+    F₁ corpus → Bost–Connes → complete Connes–Consani 2014–2026 series → Deninger →
+    Morishita 2025 (the two programs converge).
+  - `criteria/` 45 — Weil positivity, Li/Keiper–Li, Nyman–Beurling/Báez-Duarte,
+    Robin/Lagarias/Nicolas, Riesz/HL, Redheffer/Farey/Speiser/Salem, de Branges saga.
+  - `surveys-expository/` 18 — Riemann 1859, Clay/Bombieri/Sarnak/Conrey, Atiyah +
+    de Branges primary sources, Jensen-polynomials story with rebuttals.
+  - `recent/` 15 — 2019–2026: GM ecosystem, CC zeta spectral triples + "Letter to
+    Riemann", formalization (RH now stated in Mathlib), claimed-proof audit.
+- **Next:** `BREAKDOWN.md` — the synthesis of which approaches could actually work.
 
 ## Logging discipline
 
