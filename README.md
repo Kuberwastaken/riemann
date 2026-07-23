@@ -29,8 +29,17 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 11:43 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 11:51 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
+
+- **NEW — T1 architecture increment** (`experiments/weil_positivity/T1-ARCHITECTURE.md`):
+  **Lemma 1 proven** (sharp ½-factor bound on the prime-2 term, ‖Q₂‖ ≤ (log 2)/√2 —
+  explains the measured saturation exactly); spatial block criterion honestly refuted;
+  T1 reduced to a single sharp invariant μ(L) = λ_min(G^{−1/2}Q₂G^{−1/2}) > −1
+  (measured headroom 0.69 → 0.008 across the one-prime window); and a new observed
+  phenomenon: **just-in-time rescue** — G+Q₂ goes indefinite at L=0.58 but the p=3
+  term restores positivity (Euler-product collectivity load-bearing from the second
+  prime).
 
 - **NEW — first experiment executed:** `experiments/weil_positivity/` — the Weil
   quadratic form built numerically in the critical support window (engine validated
