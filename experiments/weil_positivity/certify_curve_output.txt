@@ -1,0 +1,63 @@
+=== L=0.50 ===
+# certify L=0.5 N=16 R_CUT=3263 primes=[2] dps=25
+G row 1/16 t=6s
+G row 2/16 t=13s
+G row 3/16 t=19s
+G row 4/16 t=25s
+G row 5/16 t=30s
+G row 6/16 t=34s
+G row 7/16 t=38s
+G row 8/16 t=42s
+G row 9/16 t=45s
+G row 10/16 t=48s
+G row 11/16 t=51s
+G row 12/16 t=53s
+G row 13/16 t=54s
+G row 14/16 t=56s
+G row 15/16 t=56s
+G row 16/16 t=57s
+prime+pole done t=57s
+float generalized lambda_min = 0.01649125
+CERTIFIED: W >= 0.01484213 ||f||^2 on the explicit 14-dim family (L=0.5, primes [2]). t=58s
+=== L=0.545 ===
+# certify L=0.545 N=16 R_CUT=2510 primes=[2] dps=25
+G row 1/16 t=7s
+G row 2/16 t=13s
+G row 3/16 t=19s
+G row 4/16 t=25s
+G row 5/16 t=30s
+G row 6/16 t=36s
+G row 7/16 t=40s
+G row 8/16 t=44s
+G row 9/16 t=47s
+G row 10/16 t=50s
+G row 11/16 t=52s
+G row 12/16 t=55s
+G row 13/16 t=56s
+G row 14/16 t=57s
+G row 15/16 t=58s
+G row 16/16 t=59s
+prime+pole done t=59s
+float generalized lambda_min = 0.00142794
+CERTIFIED: W >= 0.00128515 ||f||^2 on the explicit 14-dim family (L=0.545, primes [2]). t=59s
+=== L=0.60 ===
+# certify L=0.6 N=16 R_CUT=2510 primes=[2, 3] dps=25
+G row 1/16 t=7s
+G row 2/16 t=15s
+G row 3/16 t=21s
+G row 4/16 t=28s
+G row 5/16 t=34s
+G row 6/16 t=39s
+G row 7/16 t=44s
+G row 8/16 t=49s
+G row 9/16 t=52s
+G row 10/16 t=56s
+G row 11/16 t=59s
+G row 12/16 t=61s
+G row 13/16 t=63s
+G row 14/16 t=64s
+G row 15/16 t=65s
+G row 16/16 t=66s
+prime+pole done t=66s
+float generalized lambda_min = 0.00008417
+CERTIFIED: W >= 0.00007575 ||f||^2 on the explicit 14-dim family (L=0.6, primes [2, 3]). t=67s
