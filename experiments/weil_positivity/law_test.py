@@ -26,17 +26,11 @@ def lam_min(L, N=16):
     _, _, Vt = np.linalg.svd(np.vstack([vpf, vmf]))
     Q = Vt[2:].T
     d = N - 2
-    W = mp.matrix(d, d)
-    for a_ in range(d):
-        for b_ in range(d):
-            s = mp.mpf(0)
-            for i in range(N):
-                for j in range(N):
-                    w = Gm[i][j] + Pm[i][j] + vp[i] * vm[j] + vm[i] * vp[j]
-                    s += mp.mpf(Q[i, a_]) * mp.mpf(Q[j, b_]) * mp.mpf(str(w.mid()))
-            W[a_, b_] = s
-    ev = mp.eigsy(W, eigvals_only=True)
-    return float(min(ev)), time.time() - t0
+    Wf = np.array([[float((Gm[i][j] + Pm[i][j] + vp[i]*vm[j] + vm[i]*vp[j]).mid())
+                    for j in range(N)] for i in range(N)])
+    Wq = Q.T @ Wf @ Q
+    ev = np.linalg.eigvalsh(0.5*(Wq + Wq.T))
+    return float(ev[0]), time.time() - t0
 
 if __name__ == '__main__':
     print(f"# lambda_min(L) high-precision; prediction: local slope -4*gamma_1 = -{4*G1:.3f}")
