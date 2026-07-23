@@ -29,10 +29,16 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 11:55 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 12:04 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **NEW — T1 architecture increment** (`experiments/weil_positivity/T1-ARCHITECTURE.md`):
+- **NEW — Certified Result 1**: rigorous (Arb ball-arithmetic, verified integration +
+  certified Cholesky) — **W(f) ≥ 0.0726‖f‖² on an explicit 14-dim family at L=0.45**,
+  prime-2 term active, beyond the CC ratio-2 window, in the regime where
+  norm-perturbation provably fails. First rigorous Weil-positivity statement with an
+  active prime beyond ratio 2 (finite family; full-space version = open target T1).
+  `experiments/weil_positivity/certify_L045.py` reproduces it in ~1 min.
+- **T1 architecture increment** (`experiments/weil_positivity/T1-ARCHITECTURE.md`):
   **Lemma 1 proven** (sharp ½-factor bound on the prime-2 term, ‖Q₂‖ ≤ (log 2)/√2 —
   explains the measured saturation exactly); spatial block criterion honestly refuted;
   T1 reduced to a single sharp invariant μ(L) = λ_min(G^{−1/2}Q₂G^{−1/2}) > −1
