@@ -29,8 +29,9 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 12:15 UTC. This section is refreshed regularly; the commit
-history and `logs/LOG.md` carry the fine-grained record._
+_Last updated: 2026-07-23 12:16 UTC. This section is refreshed regularly; the commit
+history and `logs/LOG.md` carry the fine-grained record. Rescue certification
+(L=0.62, 22-dim family) currently running._
 
 - **NEW — Certified Result 1**: rigorous (Arb ball-arithmetic, verified integration +
   certified Cholesky) — **W(f) ≥ 0.0726‖f‖² on an explicit 14-dim family at L=0.45**,
