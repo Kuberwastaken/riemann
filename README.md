@@ -29,10 +29,14 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 13:21 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 13:28 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **NEW — THEOREM A (proven + certified)**: the archimedean Weil form on the
+- **NEW — [`LEADS.md`](LEADS.md)**: seven vetted post-no-go leads, headed by the
+  graded-mode architecture for full-space T1 (the first route surviving every
+  refutation) and the certified razor corridor (Weil-form infimum at the L=0.7
+  window certified ≤ 1.19e-7 vs RH's ≥ 0).
+- **THEOREM A (proven + certified)**: the archimedean Weil form on the
   prime-free window is *coercive* with certified constant **c₀ ≥ 0.349152** —
   the quantitative floor missing from the literature (CC 2020 prove only ≥ 0),
   via an elementary trace-identity + rearrangement proof
