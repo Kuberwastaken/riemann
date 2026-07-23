@@ -29,7 +29,7 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 11:35 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 11:18 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
 - **NEW — first experiment executed:** `experiments/weil_positivity/` — the Weil
@@ -66,7 +66,9 @@ history and `logs/LOG.md` carry the fine-grained record._
     de Branges primary sources, Jensen-polynomials story with rebuttals.
   - `recent/` 15 — 2019–2026: GM ecosystem, CC zeta spectral triples + "Letter to
     Riemann", formalization (RH now stated in Mathlib), claimed-proof audit.
-- **Next:** `BREAKDOWN.md` — the synthesis of which approaches could actually work.
+- **Next:** ATTACK.md §10 portfolio — small-δ T1 proof attempt (Sonin margin vs the
+  explicit (log 2)/√2 bound), the lag-log 2 cancellation lemma, rigorous
+  interval-arithmetic certificates for the sweep's regime boundaries.
 
 ## Logging discipline
 
