@@ -190,10 +190,40 @@ first zero — realizing ≈83% of its Lemma-1-allowed prime correlation. T1 red
 an uncertainty-type statement: *a function of support 2L ≤ log 3 cannot be spectrally
 concentrated below γ₁ and simultaneously saturate its autocorrelation at lag log 2.*
 
+## Certified Results 2–4: the certified positivity curve (`certify.py`)
+
+Same rigorous pipeline (Arb verified integration, rigorous tails, ball-arithmetic
+Cholesky), parametric in L, all in-window prime powers included, N = 16
+(14-dim families), ~1 min each on the Pi:
+
+| L | primes | certified c: W ≥ c‖f‖² | float λ_min | regime |
+|---|---|---|---|---|
+| 0.450 | {2} | **0.072606** | 0.080673 | cancellative |
+| 0.500 | {2} | **0.014842** | 0.016491 | cancellative |
+| 0.545 | {2} | **0.001285** | 0.001428 | end of one-prime window |
+| 0.600 | {2,3} | **0.000076** | 0.000084 | two primes, past L* |
+
+Notes. (i) The L = 0.600 certificate is, to our knowledge, the first rigorous
+**multi-prime** Weil-positivity statement. Honest framing: on this particular
+14-dim family the archimedean part alone still has λ_min = +0.0112; the certificate
+proves positivity *surviving* a two-prime deficit that consumes 99.3% of that
+minimum (0.0112 → 0.000076 certified). The full-space "primes rescue" inversion
+(archimedean part negative, total nonnegative) remains numerical-only — certifying
+it would require larger N where the archimedean subspace minimum goes negative,
+a natural next step. (ii) The certified constants track the full-space (N=48)
+sweep values closely at the window's end (0.001285 vs 0.001272), i.e. the finite
+family already nearly realizes the true infimum there. (iii) Ball-arithmetic
+precision held ~10⁻⁵ relative through Cholesky at the tightest point — certifying
+at 90% of an 8×10⁻⁵ eigenvalue.
+
 ## Honest status
 
 - Lemma 1: proven, sharp, confirmed by two independent numerical measurements.
-- Certified Result 1: rigorous on an explicit 14-dim family (above).
+  Lemma 1′: general prime-power norm bound with explicit per-window constants.
+- Certified Results 1–4: rigorous coercivity of the full Weil functional on
+  explicit 14-dim families at L = 0.45, 0.50, 0.545 (one prime) and 0.60
+  (two primes) — a certified positivity curve through the cancellative regime
+  into the multi-prime zone.
 - v1 spatial-block criterion: refuted (documented above) — real information about
   where the difficulty is NOT.
 - v2 invariant μ: exact reformulation of T1; numerically true with quantified
