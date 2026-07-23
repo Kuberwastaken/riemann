@@ -487,3 +487,33 @@ the difficulty cornered into one place. The lightning bolt precedents (Deligne's
 squaring, Viazovska's function) both struck *after* their fields had done exactly that
 cornering. RH's cornering is, on the evidence of this archive, finally underway — at
 the archimedean–arithmetic boundary, ratio 2, where the first prime is waiting.
+
+---
+
+## 12. Experimental addendum (same day): T4a executed
+
+The certificate experiment of §7/§10 was run — `experiments/weil_positivity/`
+(engine validated against the explicit-formula identity to 3×10⁻⁵…3×10⁻⁷ using
+Odlyzko's first 100k zeros; full write-up in
+[`experiments/weil_positivity/RESULTS.md`](experiments/weil_positivity/RESULTS.md)).
+Findings that update this document:
+
+1. **T1's perturbative window is real but ends at L ≈ 0.39, before the p=3
+   threshold**: for L ∈ (0.3466, 0.39) the archimedean margin beats the full
+   operator norm of the p=2 term (which saturates at the explicit constant
+   (log 2)/√2 ≈ 0.4901) — a small-δ version of T1 reduces to a quantitative
+   Sonin-margin bound and is plausibly finishable with existing technology.
+2. **Beyond L ≈ 0.39, T1 is cancellative**: the p=2 term exceeds the margin in norm
+   but its negative directions avoid the archimedean soft cone (total stays > 0).
+   The required lemma is now precisely identified: *prolate-type functions
+   concentrated against the negative part of the archimedean kernel have small
+   autocorrelation at lag log 2*. This — not a norm estimate — is the true content
+   of T1.
+3. **Purely archimedean positivity dies at L\* = 0.59 ± 0.01**: past it the margin
+   is negative and the *primes rescue positivity*, pinning the total infimum at 0
+   to 6–7 digits out to L = 2 (margin −1.35, prime norm 3.50, total 0.000000).
+   Boundary-feasibility (§1b) is now an observed phenomenon, not just an inference.
+4. **The near-null vectors are visible**: total-form minimizers develop Fourier
+   nodes at the actual zeta zeros (a node at γ₁ = 14.13 by L = 1.1, interlacing
+   several zeros by L = 1.9) — the concrete shape of the ζ-cycles mechanism, and
+   the concrete shape any positivity proof must accommodate as its equality case.
