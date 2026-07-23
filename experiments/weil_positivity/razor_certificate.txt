@@ -1,0 +1,5 @@
+float value at minimizer: 1.186e-07
+certified W(v) ball: [1.19e-7 +/- 4.75e-10]
+CERTIFIED: inf of the full Weil form at window [e^-0.7, e^0.7] is <= 1.187e-07
+(RH asserts inf >= 0: the certified two-sided gap is [0, 1.187e-07])
+t=174s
