@@ -31,6 +31,14 @@ Remarks.
   ‖P‖ ≤ Σ_{2 ≤ n < e^{2L}} Λ(n)n^{−1/2} — an explicit constant per window
   (0.4901 for one prime; 1.1244 for {2,3}; etc.), rigorous for the entire regime
   probed by the sweep up to L = log 2.
+- **Lemma 1″ (equality case).** |g(a)| = ½‖f‖² forces, tracing the two
+  inequalities: (i) AM–GM equality: ‖f₊‖ = ‖f₋‖; (ii) total-mass equality:
+  f vanishes a.e. outside I₊ ∪ I₋ (all mass in the edge strips); (iii)
+  Cauchy–Schwarz equality: f₊ = c·τ_a f₋ with |c| = 1, and c = ±1 for real f.
+  So the extremals are exactly the **dipoles**: two congruent lumps at separation
+  a with matched (anti-)aligned profiles — confirming that the prime term's worst
+  case is the two-strip transfer mode, and that any strict-mass-in-core assumption
+  buys a strict gap in Lemma 1 (quantified: |g(a)| ≤ ½‖f_edge‖² always).
 - **Coverage**: L ≤ log 2 ≈ 0.6931 covers the entire one-prime window
   (L < ½log 3 ≈ 0.5493) and all of regime III.
 - **Refinement used below**: the proof actually gives the stronger
