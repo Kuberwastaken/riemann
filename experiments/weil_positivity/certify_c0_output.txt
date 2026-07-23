@@ -1,0 +1,7 @@
+# Theorem A certification: L0 = log2/2, grid step 0.25, K=64
+cap at R=6.25 (negative region end): 0.09405
+cap reaches 1 at R = 12.5
+certified Stieltjes ball: [0.34915226390432247560771731835 +/- 4.63e-30]
+
+CERTIFIED: c0 >= 0.349152
+THEOREM A HOLDS with the certified constant above.
