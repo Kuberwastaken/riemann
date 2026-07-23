@@ -29,7 +29,7 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 10:39 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 10:44 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
 - **Phase:** **complete** — collection (6/6 agents) and synthesis done.
