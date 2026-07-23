@@ -1,0 +1,20 @@
+# certify L=0.64 N=16 R_CUT=12115 primes=[2, 3] dps=30
+G row 1/16 t=16s
+G row 2/16 t=33s
+G row 3/16 t=48s
+G row 4/16 t=62s
+G row 5/16 t=74s
+G row 6/16 t=87s
+G row 7/16 t=97s
+G row 8/16 t=108s
+G row 9/16 t=116s
+G row 10/16 t=124s
+G row 11/16 t=131s
+G row 12/16 t=137s
+G row 13/16 t=141s
+G row 14/16 t=145s
+G row 15/16 t=147s
+G row 16/16 t=149s
+prime+pole done t=150s
+float generalized lambda_min = 0.00000811
+CERTIFIED: W >= 0.00000730 ||f||^2 on the explicit 14-dim family (L=0.64, primes [2, 3]). t=150s
