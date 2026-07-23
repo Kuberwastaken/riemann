@@ -29,7 +29,7 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 17:03 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 17:23 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
 - **NEW — [`LEADS.md`](LEADS.md)**: seven vetted post-no-go leads, headed by the
