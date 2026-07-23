@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite it as below."
+title: "Riemann: an AI-orchestrated research archive of approaches to the Riemann Hypothesis"
+abstract: >-
+  A curated, annotated archive of every major serious approach to the Riemann
+  Hypothesis (178 primary sources across six approach families, six annotated
+  bibliographies, and a synthesis), together with a numerical and computer-assisted
+  (Arb ball-arithmetic) laboratory studying Weil positivity in the critical support
+  window. The archive proves no new mathematics about RH; its original contributions
+  are a few elementary lemmas, rigorous subspace certificates with active prime terms,
+  an exact reformulation of the one-prime positivity target, and an honest map of the
+  barriers and openings. Built by AI research agents under human direction.
+type: dataset
+authors:
+  - given-names: Kuber
+    family-names: Mehta
+repository-code: "https://github.com/Kuberwastaken/reimann"
+license: Apache-2.0
+keywords:
+  - Riemann Hypothesis
+  - Weil positivity
+  - Connes-Consani program
+  - Hilbert-Polya
+  - explicit formula
+  - research archive
+  - AI-orchestrated research
+date-released: 2026-07-24
