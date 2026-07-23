@@ -96,3 +96,4 @@ record, this file is the narrative).
 - **14:23** — Observability tick: heartbeat. Tree clean, archive stable, no jobs running.
 - **14:43** — Observability tick: heartbeat. Tree clean, archive stable, no jobs running.
 - **15:03** — Observability tick: heartbeat. Tree clean, archive stable, no jobs running.
+- **16:23** — Observability tick (4 queued ticks batched, one idempotent pass): heartbeat. Tree clean, archive stable (178 PDFs, 6 notes), no jobs running.
