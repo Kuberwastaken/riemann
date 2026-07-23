@@ -29,8 +29,18 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 10:44 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 11:35 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
+
+- **NEW — first experiment executed:** `experiments/weil_positivity/` — the Weil
+  quadratic form built numerically in the critical support window (engine validated
+  against the explicit-formula identity via Odlyzko's 100k zeros), mapping the four
+  regimes of positivity: prime-free → perturbative (T1 provable-looking for small δ)
+  → cancellative (the true T1 lemma identified) → arithmetic-rescue criticality
+  (total pinned at 0 to 10⁻⁶ while margin −1.35 / prime norm 3.5; minimizers develop
+  Fourier nodes at the actual zeta zeros). See
+  [`experiments/weil_positivity/RESULTS.md`](experiments/weil_positivity/RESULTS.md)
+  and `ATTACK.md` §12.
 
 - **Phase:** **complete** — collection (6/6 agents), synthesis, and deep-dive done.
   **→ Read [`BREAKDOWN.md`](BREAKDOWN.md)** for the survey: the three walls,
