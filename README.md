@@ -29,19 +29,23 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 10:32 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 10:34 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **Phase:** collection — 5 of 6 research agents still searching/downloading.
-- **Complete:** `recent/` ✅ — 15 verified PDFs committed + `notes/recent.md`
-  (2019–2026 frontier: Guth–Maynard ecosystem, Connes–Consani 2025–26 arc incl.
-  zeta spectral triples and the Feb 2026 "Letter to Riemann", Zhang status,
-  Lean/Mathlib formalization of ζ and the RH statement).
-- **In flight:** spectral 34 · algebraic-geometric 39 · criteria 39 ·
-  analytic-progress 27 · surveys-expository 18 — 172 PDFs on disk total,
-  committed per-artifact once each agent finishes (avoids truncated mid-download files).
-- **Next:** per-category verification + commit passes as agents land, then
-  `BREAKDOWN.md` — the synthesis of which approaches could actually work.
+- **Phase:** collection — 4 of 6 research agents still searching/downloading.
+- **Complete:**
+  - `recent/` ✅ 15 verified PDFs + `notes/recent.md` — 2019–2026 frontier:
+    Guth–Maynard ecosystem, Connes–Consani 2025–26 arc (zeta spectral triples,
+    Feb 2026 "Letter to Riemann"), Zhang status, Lean/Mathlib formalization.
+  - `spectral/` ✅ 34 verified PDFs + `notes/spectral.md` — Hilbert–Pólya program
+    end-to-end: Montgomery/Odlyzko GUE, Berry–Keating xp line, BBM 2017 controversy,
+    Sierra corpus, Srednicki, Keating–Snaith/CFKRS moments, FHK extremes,
+    Katz–Sarnak, Selberg analogy, experimental realizations.
+- **In flight:** algebraic-geometric 39 · criteria 44 · analytic-progress 27 ·
+  surveys-expository 18 — 177 PDFs on disk total, committed per-artifact as each
+  agent lands (avoids truncated mid-download files).
+- **Next:** remaining category passes, then `BREAKDOWN.md` — the synthesis of which
+  approaches could actually work.
 
 ## Logging discipline
 
