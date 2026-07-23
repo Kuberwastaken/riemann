@@ -1,0 +1,24 @@
+# Certified Weil positivity, L=0.45, N=16, R_CUT=800, dps=25
+G row 1 done  t=6s
+G row 2 done  t=12s
+G row 3 done  t=19s
+G row 4 done  t=26s
+G row 5 done  t=31s
+G row 6 done  t=35s
+G row 7 done  t=39s
+G row 8 done  t=42s
+G row 9 done  t=45s
+G row 10 done  t=48s
+G row 11 done  t=50s
+G row 12 done  t=52s
+G row 13 done  t=53s
+G row 14 done  t=54s
+G row 15 done  t=55s
+G row 16 done  t=56s
+prime matrix done t=56s
+pole vectors done t=56s
+Q chosen (exact float); constraint residuals: 1.734723475976807e-16 7.632783294297951e-17
+B assembled t=56s
+float generalized lambda_min = 0.080673
+CERTIFIED: W >= 0.072606 * ||f||^2 on the explicit 14-dim family (L=0.45, prime-2 active, beyond CC ratio-2 window).
+total time 56s
