@@ -1,0 +1,7 @@
+# lambda_min(L) high-precision; prediction: local slope -4*gamma_1 = -56.539
+L=0.64  lambda_min=8.112670e-06   t=351s
+L=0.68  lambda_min=6.699439e-07   t=385s
+L=0.72  lambda_min=3.209283e-08   t=357s
+# local log-slopes (d log lambda / dL):
+  [0.64,0.68]: slope = -62.35   (pred -56.54)
+  [0.68,0.72]: slope = -75.96   (pred -56.54)
