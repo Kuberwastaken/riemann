@@ -1,0 +1,6 @@
+# Structure of the mu-extremal vector (the direction a T1 proof must control)
+# L     mu       edge_mass  core_mass  g(log2)/||f||^2  |F|^2 peak r
+0.400  -0.5095  0.570      0.430      +0.2826          8.6
+0.460  -0.8083  0.476      0.524      +0.2347          8.1
+0.520  -0.9702  0.421      0.579      +0.1752          7.7
+0.545  -0.9917  0.433      0.567      +0.1558          7.6
