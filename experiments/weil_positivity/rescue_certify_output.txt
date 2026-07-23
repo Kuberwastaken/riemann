@@ -1,0 +1,54 @@
+# rescue certification L=0.62 N=24 R_CUT=9319 primes=[2, 3]
+G row 1/24 t=17s
+G row 2/24 t=37s
+G row 3/24 t=50s
+G row 4/24 t=62s
+G row 5/24 t=73s
+G row 6/24 t=84s
+G row 7/24 t=94s
+G row 8/24 t=104s
+G row 9/24 t=112s
+G row 10/24 t=120s
+G row 11/24 t=127s
+G row 12/24 t=135s
+G row 13/24 t=141s
+G row 14/24 t=147s
+G row 15/24 t=152s
+G row 16/24 t=157s
+G row 17/24 t=163s
+G row 18/24 t=168s
+G row 19/24 t=172s
+G row 20/24 t=176s
+G row 21/24 t=179s
+G row 22/24 t=181s
+G row 23/24 t=182s
+G row 24/24 t=184s
+prime+pole done t=185s
+(a) v^T G v enclosure: [-0.02776113 +/- 5.78e-9]  (float est -0.027761)
+(a) CERTIFIED negative archimedean direction: True
+B col 1/22 t=185s
+B col 2/22 t=185s
+B col 3/22 t=185s
+B col 4/22 t=185s
+B col 5/22 t=185s
+B col 6/22 t=185s
+B col 7/22 t=185s
+B col 8/22 t=185s
+B col 9/22 t=185s
+B col 10/22 t=185s
+B col 11/22 t=185s
+B col 12/22 t=185s
+B col 13/22 t=185s
+B col 14/22 t=185s
+B col 15/22 t=185s
+B col 16/22 t=185s
+B col 17/22 t=185s
+B col 18/22 t=185s
+B col 19/22 t=185s
+B col 20/22 t=185s
+B col 21/22 t=185s
+B col 22/22 t=185s
+(b) float generalized lambda_min = 0.00002292
+(b) CERTIFIED: W >= 0.000020624 ||f||^2 on the explicit 22-dim family.
+
+RESCUE CERTIFIED (L=0.62, primes [2, 3]): archimedean form has a rigorously negative direction ([-0.02776113 +/- 5.78e-9]) on a family where the full Weil form is rigorously >= 2.06e-05. Positivity is created by the prime terms. t=186s
