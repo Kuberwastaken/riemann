@@ -32,9 +32,13 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 _Last updated: 2026-07-23 10:44 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **Phase:** **complete** — collection (6/6 agents) and synthesis done.
-  **→ Read [`BREAKDOWN.md`](BREAKDOWN.md)** for the full analysis: the three walls,
+- **Phase:** **complete** — collection (6/6 agents), synthesis, and deep-dive done.
+  **→ Read [`BREAKDOWN.md`](BREAKDOWN.md)** for the survey: the three walls,
   family-by-family verdicts, what a successful proof must look like, and the watch list.
+  **→ Read [`ATTACK.md`](ATTACK.md)** for the deep dive: RH as a boundary-feasible
+  convex program, the no-go map, the two engines that ever killed an RH, and a concrete
+  research portfolio (the one-prime Weil-positivity target T1, SDP certificates,
+  spectral-triple windows, finite-level tropical Hodge index, GM × pair-correlation).
 - **Archive:** **178 verified PDFs (161 MB)** + **6 annotated bibliographies
   (~2000 lines)**, every artifact its own commit:
   - `spectral/` 34 — Hilbert–Pólya end-to-end: Montgomery/Odlyzko GUE, Berry–Keating,
