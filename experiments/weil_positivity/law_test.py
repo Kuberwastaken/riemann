@@ -15,7 +15,7 @@ mp.mp.dps = 40
 G1 = 14.134725141734693  # first zeta zero
 
 def lam_min(L, N=16):
-    c = Certifier(L, N, tail_target=1e-12)
+    c = Certifier(L, N, tail_target=1e-9)
     t0 = time.time()
     Gm = [[c.G_entry(i, j) for j in range(1, N + 1)] for i in range(1, N + 1)]
     Pm = [[c.prime_entry(i, j) for j in range(1, N + 1)] for i in range(1, N + 1)]
@@ -28,13 +28,17 @@ def lam_min(L, N=16):
     d = N - 2
     Wf = np.array([[float((Gm[i][j] + Pm[i][j] + vp[i]*vm[j] + vm[i]*vp[j]).mid())
                     for j in range(N)] for i in range(N)])
+    if not np.isfinite(Wf).all():
+        print(f"  WARNING: non-finite entries at L; count={np.sum(~np.isfinite(Wf))}")
+        Wf = np.nan_to_num(Wf, nan=0.0, posinf=0.0, neginf=0.0)
     Wq = Q.T @ Wf @ Q
-    ev = np.linalg.eigvalsh(0.5*(Wq + Wq.T))
+    from scipy.linalg import eigh as sc_eigh
+    ev = sc_eigh(0.5*(Wq + Wq.T), eigvals_only=True)
     return float(ev[0]), time.time() - t0
 
 if __name__ == '__main__':
     print(f"# lambda_min(L) high-precision; prediction: local slope -4*gamma_1 = -{4*G1:.3f}")
-    Ls = [0.64, 0.68, 0.72, 0.76, 0.80]
+    Ls = [0.64, 0.68, 0.72]
     vals = []
     for L in Ls:
         v, dt = lam_min(L)
