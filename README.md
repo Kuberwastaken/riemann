@@ -29,7 +29,7 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 12:37 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 12:38 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
 - **NEW — [`GAPS.md`](GAPS.md)**: six sharp openings found by cross-reading the archive's
