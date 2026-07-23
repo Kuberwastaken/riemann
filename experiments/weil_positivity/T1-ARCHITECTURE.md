@@ -241,6 +241,28 @@ observation. This is the mechanism a proof of RH via Weil positivity must contro
 at every scale; here it is pinned down rigorously at the first scale where it
 activates.
 
+## Assembly no-go analysis (post-Theorem A)
+
+Attempting to assemble T1(δ₀) from Theorem A + edge coercivity (GAPS.md Gap 2)
+runs into two quantitative walls, now understood precisely:
+
+1. **The edge-coercivity constant is too weak at practical δ**: the elementary
+   bandwidth bound gives edge coercivity ½log(1/(16πδ)) − 3, positive only for
+   δ ≲ 3×10⁻⁷ — far below any useful window extension.
+2. **Smooth-partition (IMS) localization blows up**: the localization error for
+   the archimedean form scales like ‖χ′‖² ~ 1/δ² against a log(1/δ) gain — the
+   kernel of Ω(D) has a 1/|x| singularity, making the double-commutator cost
+   δ⁻²·L². Together with the earlier numerical refutation of sharp spatial
+   blocks, this closes ALL spatial-decomposition routes to T1, smooth or sharp.
+
+**Conclusion: T1 must be won globally in the spectral variable.** The viable
+ladder is the moment hierarchy refining Lemma T: λ_max(B_R|V) bounded via
+Tr B, Tr B², Tr B³, … — which converges to the true constrained concentration
+profile (equivalently, to the prolate/Sonin analysis of CC). The norm-route
+target is explicit: a bound capturing ≥ 95% of the true archimedean floor on
+(½log 2, ≈0.369] clears the (log 2)/√2 prime bar and proves T1 there. First
+moment captures 64%; the second-moment test is `secmom` (in progress).
+
 ## Honest status
 
 - Lemma 1: proven, sharp, confirmed by two independent numerical measurements.
