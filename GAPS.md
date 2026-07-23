@@ -59,7 +59,23 @@ edge strips of width 2δ. Then:
 *What it buys:* T1 for small δ fully proven — the first Weil-positivity theorem
 with arithmetic content. All the pieces except (2c) exist today in this repo.
 
-## Gap 3 — The untranslated dictionary: Carathéodory–Fejér ⟷ window positivity
+## Gap 3 — RESOLVED (13:15 UTC, by reading CCM 2025 §1–3 directly)
+
+**Answer: the shortcut does not exist — and the dictionary runs the other way.**
+(a) CCM's eq. (3.19) confirms their QW_λ is *exactly* the form our laboratory
+measures (same Riemann–Siegel/digamma kernel, same prime operators T(n), same
+pole term). (b) Their Theorem 1.1 builds the self-adjoint operator on the metric
+QW_λ − ε_N⟨·,·⟩ — *shifted by the smallest eigenvalue, whatever its sign*: the
+Carathéodory–Fejér mechanism is deliberately positivity-agnostic and cannot
+imply T1. (c) The transfer goes the other way: their Thm 1.1 *assumes* ε_N
+simple with even eigenfunction (unverified hypotheses), and their Prop. 3.4
+states the full-space infimum of QW_λ is the limit of exactly the finite-section
+eigenvalues we certify — so our certificates can rigorously verify the sign of
+their ε_N and the hypotheses of their theorem in concrete windows. New,
+unclaimed contribution surface. (d) Side realization: our Theorem A is already a
+full-space bound (the trace identity never used a finite basis).
+
+### Original Gap 3 statement (kept for the record)
 
 CCM 2025 ("Zeta Spectral Triples") guarantee self-adjointness of their operators
 D^{(λ,N)} via an *extension of Carathéodory–Fejér theory* — a positivity theorem
