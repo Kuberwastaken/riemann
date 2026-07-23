@@ -114,6 +114,18 @@ vᵀGv = −0.02776113 ± 5.8×10⁻⁹ (archimedean part indefinite on the fami
 (b) certified W ≥ 2.0624×10⁻⁵‖f‖² on the whole family. Positivity created by the
 prime terms, machine-verified.
 
+## 5b. Theorem A (proven + certified): explicit archimedean coercivity
+
+On the prime-free window (supp f ⊆ [−½log2, ½log2], pole constraints), the
+archimedean Weil form satisfies G(f) ≥ c₀‖f‖² with **certified c₀ ≥ 0.349152**
+(measured sharp value ≈ 0.55). Proof (`PROOF-c0.md`): Ω is strictly increasing
+(Im ψ′ < 0 termwise); the band-concentration of the constrained space is bounded
+by the trace identity λ_max ≤ Tr(B_R) − ρ₁(R) − ρ₂(R) with the constraint
+representers absorbing almost the whole trace; a stochastic-dominance
+rearrangement then bounds ∫Ω dν below by a certified Stieltjes sum. This is the
+quantitative floor missing from the literature (CC 2020 prove ≥ 0) — obtained by
+elementary means, independent of the prolate/Sonin machinery.
+
 ## 6. Structural discoveries (numerical)
 
 **Just-in-time rescue.** Truncations of the prime sum go indefinite essentially
