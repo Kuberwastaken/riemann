@@ -143,9 +143,50 @@ Three exact-looking regularities (numerical, N=48, resolution ~10⁻⁵):
    positivity propagates from window to window with zero slack, each threshold
    crossing paid for exactly by the arriving prime.
 
+## Certified Result 1 (rigorous, computer-assisted; Arb ball arithmetic)
+
+**Statement.** Let L = 0.45, φ_k(u) = sin(kπ(u+L)/(2L))/√L for k = 1…16 (supported
+in [−L, L]), and let Q ∈ ℝ^{16×14} be the explicit matrix computed in
+`certify_L045.py` (approximate null space of the two pole functionals; stored
+exactly as float64). Then for every f in the 14-dimensional family
+{Σ c_a (Qφ)_a : c ∈ ℝ^{14}}:
+
+W(f) := 2h_f(i/2) + (1/2π)∫ h_f(r)Ω(r)dr − √2 log 2 · g_f(log 2) **≥ 0.072606 ‖f‖²**,
+
+where the window admits exactly one prime power (n = 2, since e^{2L} ≈ 2.46).
+By the Riemann–Weil explicit formula (valid for these test functions: h entire,
+O(r⁻⁴) in the strip), the left side equals Σ_ρ ĥ_f(ρ) over the nontrivial zeta
+zeros — so the zero-sum functional is certifiably coercive on this family.
+
+**Method** (all steps carry rigorous enclosures): archimedean entries by Arb
+verified integration of the regularized closed form (sinc representation removes
+the removable singularities; the kernel is used in its *analytic symmetrization*
+(ψ(¼+ir/2)+ψ(¼−ir/2))/2 − log π, required for soundness of Arb's integration) on
+[0, 800] plus an explicit tail bound; prime and pole entries by verified 1-D
+integration; the final bound by Cholesky factorization executed in ball arithmetic
+(all pivots certified positive). Float eigenvalue estimate 0.080673; certified
+constant 0.072606. Runtime 56 s on a Raspberry Pi 5. Output: `certify_L045_output.txt`.
+
+**What it is and is not.** It is — to our knowledge — the first *rigorous*
+positivity statement for the Weil functional in a window with an active prime term
+beyond the ratio-2 (Connes–Consani) regime, in the cancellative zone where
+norm-perturbation arguments provably fail (deficit 0.490 > margin 0.291 here). It
+is NOT T1: the family is 14-dimensional, not all of L²[−L, L]; extending the
+certificate to the full space is exactly the open analytic content (the
+sharpened target below). Soundness rests on Arb/python-flint and the ~150-line
+pipeline, all committed.
+
+**Sharpened analytic target from the μ-extremal structure** (`mu_extremal.txt`):
+the worst relative direction is a mixed core/dipole mode with spectral mass parked
+in the "cheap band" r ∈ (2π, γ₁) — above the negative archimedean valley, below the
+first zero — realizing ≈83% of its Lemma-1-allowed prime correlation. T1 reduces to
+an uncertainty-type statement: *a function of support 2L ≤ log 3 cannot be spectrally
+concentrated below γ₁ and simultaneously saturate its autocorrelation at lag log 2.*
+
 ## Honest status
 
 - Lemma 1: proven, sharp, confirmed by two independent numerical measurements.
+- Certified Result 1: rigorous on an explicit 14-dim family (above).
 - v1 spatial-block criterion: refuted (documented above) — real information about
   where the difficulty is NOT.
 - v2 invariant μ: exact reformulation of T1; numerically true with quantified
