@@ -94,3 +94,4 @@ record, this file is the narrative).
 - **13:43** — Observability tick + **law test COMPLETE: Gap 4 (4γ₁ law) REFUTED**. λ_min = 8.11e-6 / 6.70e-7 / 3.21e-8 at L = 0.64/0.68/0.72 → slopes −62.35, −76±5 vs predicted −56.54: decay ACCELERATES (multi-zero suppression, not single-zero domination; earlier ≈56 was short-baseline coincidence). GAPS.md updated (Gap 4 → refuted, with the surviving well-posed envelope problem). Session gap scoreboard: Gap 1 closed (Theorem A), Gap 3 resolved (CF dictionary inverted), Gap 4 refuted, Gaps 2/5/6 open with Lead-1 architecture superseding Gap 2. Honest science: two of the session's own conjectures killed by its own instruments.
 - **14:03** — Observability tick: heartbeat. Tree clean, archive stable (178 PDFs, 6 notes), no jobs running.
 - **14:23** — Observability tick: heartbeat. Tree clean, archive stable, no jobs running.
+- **14:43** — Observability tick: heartbeat. Tree clean, archive stable, no jobs running.
