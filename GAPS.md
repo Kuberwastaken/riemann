@@ -90,7 +90,20 @@ and no one has noticed; if no, our certified μ data localizes exactly what thei
 self-adjointness does *not* control — sharp information either way, obtainable by
 a careful reading of one section of one paper against one page of ours.
 
-## Gap 4 — A new empirical law: criticality is approached at rate e^{−4γ₁L}
+## Gap 4 — REFUTED (13:43 UTC, high-precision test)
+
+**The clean e^{−4γ₁L} law is dead**: certified-midpoint values
+λ_min = 8.11e-6 (L=0.64), 6.70e-7 (0.68), 3.21e-8 (0.72) give local log-slopes
+−62.35 and −76.0 ± 5 against the predicted −56.54 — the decay *accelerates*
+beyond 4γ₁, consistent with progressively more zeros joining the suppression as
+interlacing capacity grows (the multi-zero mechanism), not single-zero
+domination. The earlier ≈56 slope over [0.62, 0.66] was a short-baseline
+coincidence. What survives: the decay is super-exponential-ish with an effective
+rate growing in L — the quantitative form of the capacity mechanism — and
+deriving *that* envelope from Paley–Wiener extremal theory remains a well-posed
+problem (now with the correct target shape).
+
+### Original Gap 4 statement (kept for the record)
 
 Our frontier data (L = 0.62 → 0.66) shows the completed-window λ_min decaying
 exponentially with local log-slope ≈ 55.6–57.7 — and 4γ₁ = 56.54, where
