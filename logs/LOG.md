@@ -59,3 +59,4 @@ record, this file is the narrative).
   - All artifacts committed per-file: engine, zeros table, sweep CSV + raw output, profiles.npz, sweep.png, profiles.png, RESULTS.md; ATTACK.md §12 addendum added.
 - **11:18** — Observability tick: tree clean, 178 PDFs / 6 notes unchanged, no agents running, experiment artifacts all committed. Housekeeping: corrected three drifted timestamp estimates in this log/README (11:25→11:12, 11:30→11:15, 11:35→11:18) and replaced the stale "Next" line in README with the actual next step (T1 tracks).
 - **11:23** — Observability tick: heartbeat. Tree clean, counts unchanged (178 PDFs, 6 notes), no agents running.
+- **11:43** — Observability tick: heartbeat. Tree clean, counts unchanged (178 PDFs, 6 notes), no agents running.
