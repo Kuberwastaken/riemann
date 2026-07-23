@@ -27,6 +27,20 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
                         achieved, where each stalls, and which could plausibly work
 ```
 
-## Status
+## Status — live
 
-Materials collected 2026-07. See `BREAKDOWN.md` for the analysis.
+_Last updated: 2026-07-23 10:25 UTC. This section is refreshed regularly; the commit
+history and `logs/LOG.md` carry the fine-grained record._
+
+- **Phase:** collection — 6 research agents (one per approach family) searching and
+  downloading; annotated bibliographies (`notes/`) land as each agent finishes.
+- **Papers on disk:** 122 PDFs — spectral 31 · algebraic-geometric 29 ·
+  analytic-progress 23 · criteria 23 · surveys-expository 16 · recent 0 (in progress).
+- **Next:** verify every PDF, commit one artifact per commit, write per-category notes,
+  then `BREAKDOWN.md` — the synthesis of which approaches could actually work.
+
+## Logging discipline
+
+- `logs/LOG.md` — append-only narrative work log (UTC timestamps).
+- One commit per artifact (paper, notes file, doc) with full citation in the message.
+- Everything pushed to GitHub promptly; this repo is the source of truth for progress.
