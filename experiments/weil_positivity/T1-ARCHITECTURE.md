@@ -24,6 +24,13 @@ Remarks.
   all mass in I₊ ∪ I₋. The sweep measured the deficit saturating at 0.490129 —
   exactly (log 2)/√2 — so the lemma matches the observed saturation and the observed
   value certifies the numerics.
+- **Lemma 1′ (general form, same proof).** For any prime power n = p^k with
+  log n ≥ L, the term Q_n(f) = −2Λ(n)n^{−1/2}g_f(log n) obeys
+  |Q_n(f)| ≤ Λ(n)n^{−1/2}‖f‖². Hence for L ≤ log 2 (where *every* in-window prime
+  power has log n ≥ log 2 ≥ L), the **total** prime part obeys
+  ‖P‖ ≤ Σ_{2 ≤ n < e^{2L}} Λ(n)n^{−1/2} — an explicit constant per window
+  (0.4901 for one prime; 1.1244 for {2,3}; etc.), rigorous for the entire regime
+  probed by the sweep up to L = log 2.
 - **Coverage**: L ≤ log 2 ≈ 0.6931 covers the entire one-prime window
   (L < ½log 3 ≈ 0.5493) and all of regime III.
 - **Refinement used below**: the proof actually gives the stronger
