@@ -29,7 +29,7 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 11:23 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 11:43 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
 - **NEW — first experiment executed:** `experiments/weil_positivity/` — the Weil
