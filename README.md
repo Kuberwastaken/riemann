@@ -29,9 +29,14 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 12:27 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 12:37 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
+- **NEW — [`GAPS.md`](GAPS.md)**: six sharp openings found by cross-reading the archive's
+  proofs against this session's measurements — incl. the unstated coercivity theorem
+  hiding in Connes–Consani 2020, a three-lemma route to a fully proven T1(δ₀), the
+  unchecked Carathéodory–Fejér dictionary with CCM 2025, and a candidate new law:
+  criticality approached at rate e^(−4γ₁L) (first zeta zero as rate constant; test running).
 - **NEW — Certified Result 5, the rescue phenomenon machine-verified**
   (`experiments/weil_positivity/rescue_certify.py`): on one explicit 22-dim family
   at L=0.62, a certified negative archimedean direction (vᵀGv = −0.02776 ± 6e-9)
