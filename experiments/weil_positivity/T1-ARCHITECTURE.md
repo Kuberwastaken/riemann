@@ -251,6 +251,11 @@ activates.
   into the multi-prime zone.
 - Certified Result 5: the rescue phenomenon — certified indefinite archimedean
   part + certified coercive total on the same 22-dim family (L = 0.62).
+- Certified Result 6 (scaling): at L = 0.545 the certificates persist as the
+  family dimension grows — c = 0.001285 (14-dim) → 0.001245 (22-dim) →
+  0.001195 (30-dim) vs full-space (N=48 float) infimum 0.001272: certified
+  constants within ~6% of the apparent true T1 boundary value; the family
+  dimension is not the bottleneck. (`certify_scaling_output.txt`)
 - v1 spatial-block criterion: refuted (documented above) — real information about
   where the difficulty is NOT.
 - v2 invariant μ: exact reformulation of T1; numerically true with quantified
