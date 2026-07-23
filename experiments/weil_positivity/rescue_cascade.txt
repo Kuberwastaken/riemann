@@ -1,0 +1,6 @@
+# Rescue cascade: lambda_min of G + sum_{n<=m} Q_n (constrained) as prime powers accumulate
+# Each row: L, then lam_min after adding each successive n (n listed in header per L)
+L=0.60: arch:-0.00039  2:-0.04300  3:+0.00008
+L=0.80: arch:-0.29495  2:-0.24677  3:-0.09522  4:+0.00000
+L=1.00: arch:-0.52824  2:-0.33318  3:-0.34067  4:-0.34230  5:-0.09489  7:-0.00000
+L=1.20: arch:-0.72493  2:-0.48977  3:-0.40904  4:-0.49022  5:-0.42327  7:-0.21542  8:-0.18545  9:-0.00000  11:-0.00000
