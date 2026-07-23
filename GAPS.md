@@ -1,5 +1,11 @@
 # GAPS: sharp openings found by cross-reading the archive against our results
 
+> **STATUS UPDATE (same day, 12:48 UTC): Gap 1 is CLOSED — Theorem A
+> (`experiments/weil_positivity/PROOF-c0.md`) proves the archimedean form is
+> coercive on the prime-free window with certified constant c₀ ≥ 0.349152.
+> Proof: monotonicity of Ω (2 lines) + trace-identity bound (3 lines) +
+> rearrangement; computational ingredients ball-certified to 30 digits.**
+
 *2026-07-23. Response to the directive: look at the references sharply for gaps —
 places where what is proven, what is measured, and what is merely assumed fail to
 meet. Each gap below is stated as a precise question, with why it is a genuine gap
