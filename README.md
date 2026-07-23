@@ -32,7 +32,9 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 _Last updated: 2026-07-23 10:39 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
-- **Phase:** collection **complete** (6/6 agents) → synthesis in progress.
+- **Phase:** **complete** — collection (6/6 agents) and synthesis done.
+  **→ Read [`BREAKDOWN.md`](BREAKDOWN.md)** for the full analysis: the three walls,
+  family-by-family verdicts, what a successful proof must look like, and the watch list.
 - **Archive:** **178 verified PDFs (161 MB)** + **6 annotated bibliographies
   (~2000 lines)**, every artifact its own commit:
   - `spectral/` 34 — Hilbert–Pólya end-to-end: Montgomery/Odlyzko GUE, Berry–Keating,
