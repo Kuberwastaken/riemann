@@ -216,6 +216,23 @@ family already nearly realizes the true infimum there. (iii) Ball-arithmetic
 precision held ~10⁻⁵ relative through Cholesky at the tightest point — certifying
 at 90% of an 8×10⁻⁵ eigenvalue.
 
+## Certified Result 5: the rescue phenomenon (rigorous)
+
+`rescue_certify.py`, L = 0.62, N = 24 (22-dim family), primes {2,3}, 186 s:
+
+- **(a)** an explicit unit vector v in the family with certified
+  **vᵀGv = −0.02776113 ± 5.8×10⁻⁹ < 0** — the archimedean form is rigorously
+  indefinite on the family;
+- **(b)** certified **W(f) ≥ 2.0624×10⁻⁵ ‖f‖²** for every f in the same family —
+  the full Weil form (archimedean + poles + primes 2, 3) is rigorously coercive.
+
+Together: on this explicit 22-dimensional family of compactly supported test
+functions, **positivity of the Weil functional is created by the prime terms** —
+the arithmetic-rescue mechanism is now a machine-verified fact, not an
+observation. This is the mechanism a proof of RH via Weil positivity must control
+at every scale; here it is pinned down rigorously at the first scale where it
+activates.
+
 ## Honest status
 
 - Lemma 1: proven, sharp, confirmed by two independent numerical measurements.
@@ -224,6 +241,8 @@ at 90% of an 8×10⁻⁵ eigenvalue.
   explicit 14-dim families at L = 0.45, 0.50, 0.545 (one prime) and 0.60
   (two primes) — a certified positivity curve through the cancellative regime
   into the multi-prime zone.
+- Certified Result 5: the rescue phenomenon — certified indefinite archimedean
+  part + certified coercive total on the same 22-dim family (L = 0.62).
 - v1 spatial-block criterion: refuted (documented above) — real information about
   where the difficulty is NOT.
 - v2 invariant μ: exact reformulation of T1; numerically true with quantified
