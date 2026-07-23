@@ -29,7 +29,7 @@ BREAKDOWN.md            the synthesis: taxonomy of approaches, what each has act
 
 ## Status — live
 
-_Last updated: 2026-07-23 12:04 UTC. This section is refreshed regularly; the commit
+_Last updated: 2026-07-23 12:12 UTC. This section is refreshed regularly; the commit
 history and `logs/LOG.md` carry the fine-grained record._
 
 - **NEW — Certified Result 1**: rigorous (Arb ball-arithmetic, verified integration +
@@ -37,7 +37,10 @@ history and `logs/LOG.md` carry the fine-grained record._
   prime-2 term active, beyond the CC ratio-2 window, in the regime where
   norm-perturbation provably fails. First rigorous Weil-positivity statement with an
   active prime beyond ratio 2 (finite family; full-space version = open target T1).
-  `experiments/weil_positivity/certify_L045.py` reproduces it in ~1 min.
+  `experiments/weil_positivity/certify.py L` reproduces each point in ~1 min. Now a
+  **certified curve**: c = 0.0726 (L=0.45) · 0.0148 (0.50) · 0.00129 (0.545) ·
+  **0.000076 at L=0.60 with primes {2,3}** — the first rigorous multi-prime
+  Weil-positivity statement, certified into the criticality zone.
 - **T1 architecture increment** (`experiments/weil_positivity/T1-ARCHITECTURE.md`):
   **Lemma 1 proven** (sharp ½-factor bound on the prime-2 term, ‖Q₂‖ ≤ (log 2)/√2 —
   explains the measured saturation exactly); spatial block criterion honestly refuted;
