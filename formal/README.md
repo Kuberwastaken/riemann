@@ -9,11 +9,15 @@ the same Mathlib revision this package uses.
 **Honesty first: no proof of RH exists, so no formalization of RH is possible.**
 What is possible, and is this directory's program:
 
-1. **The criterion** (planned, imports Zeta23): Weil positivity ⟺ RH in its
-   restricted-support gradations — the formal reduction that every future
-   positivity increment plugs into. The RH ⇒ positivity direction is close to
-   immediate from `EF_lit_zetaZeroConfig`; the converse (Bombieri's argument) is
-   the serious part.
+1. **The criterion** (`Criterion.lean`, imports Zeta23): Weil positivity ⟺ RH —
+   the formal reduction that every future positivity increment plugs into.
+   *Status 2026-08-11:* **the forward direction is PROVEN sorry-free** —
+   `weil_positivity_of_RH : RiemannHypothesis → WeilPositivityAll` (axiom audit:
+   propext/Classical.choice/Quot.sound only), via `EF_lit_zetaZeroConfig` and
+   Zeta23's `weilTest` machinery. Formal contrapositive now available: a
+   certified strictly-negative arithmetic side at any C²c test function would
+   disprove RH. The converse (Bombieri's argument) is the declared open half,
+   stated as `WeilCriterion`.
 2. **The increments** (this package, Mathlib-only) — *status 2026-08-11: all
    three PROVEN, sorry-free, axiom-audited (propext/Classical.choice/Quot.sound
    only), statements as designed with no added hypotheses*:
