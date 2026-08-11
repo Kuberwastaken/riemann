@@ -101,17 +101,19 @@ def run_L(L, n=1200, Rmax=22.0, dR_caps=0.25, dr_meas=0.05,
     n_ind = len(b_ub)
     for (c, a), lam in zip(sig_list, Lam):          # sigma caps
         A_ub.append(sigma_pair_vals(r, c, a)); b_ub.append(lam)
-    A_eq = [np.ones_like(r)]; b_eq = [1.0]
-    # NOTE: mass beyond Rmax would sit at Omega >= Omega(Rmax) > 0; forcing all mass
-    # into [0, Rmax] can only LOWER the LP value iff Omega(Rmax) exceeds the interior
-    # placement cost — with caps forcing most mass out to Omega ~ 1, the bound is
-    # safe/conservative either way for the pilot; certified version handles the tail
-    # explicitly as in PROOF-c0.
-    res_ind = linprog(Om, A_ub=np.array(A_ub[:n_ind]), b_ub=np.array(b_ub[:n_ind]),
-                      A_eq=np.array(A_eq), b_eq=np.array(b_eq), bounds=(0, None), method='highs')
-    res_all = linprog(Om, A_ub=np.array(A_ub), b_ub=np.array(b_ub),
-                      A_eq=np.array(A_eq), b_eq=np.array(b_eq), bounds=(0, None), method='highs')
-    out = {'floor_ind': res_ind.fun, 'floor_sigma': res_all.fun,
+    # Tail treatment: mass not placed on the grid sits beyond Rmax, worth at least
+    # Omega(Rmax) (Omega increasing) — always feasible, conservative, and exactly
+    # PROOF-c0's tail device.  min  sum (Om_i - Om_max) m_i + Om_max  s.t. sum m <= 1.
+    OmMax = Om[-1]
+    cost = Om - OmMax
+    A_ub.append(np.ones_like(r)); b_ub.append(1.0)      # total mass <= 1
+    n_tot = 1
+    res_ind = linprog(cost, A_ub=np.array(A_ub[:n_ind] + A_ub[-n_tot:]),
+                      b_ub=np.array(b_ub[:n_ind] + b_ub[-n_tot:]),
+                      bounds=(0, None), method='highs')
+    res_all = linprog(cost, A_ub=np.array(A_ub), b_ub=np.array(b_ub),
+                      bounds=(0, None), method='highs')
+    out = {'floor_ind': res_ind.fun + OmMax, 'floor_sigma': res_all.fun + OmMax,
            'sig_list': sig_list, 'Lam': Lam, 'm2_ratio': np.array(m2_ratio)}
     return out
 
