@@ -1,308 +1,263 @@
-# BRIDGE — the exact implication chain, the audit of the μ-metric diagnosis, and two theorems
+# BRIDGE v2 — after referee audit (2026-08-11, second pass)
 
-*2026-08-11, research-mathematician session. Status labels used throughout, and
-only these: [KNOWN] = theorem in the literature; [REPO-PROVED] = proved in this
-repository (paper proof and/or machine-checked); [CERTIFIED] = rigorous
-computer-assisted enclosure in this repository; [NUMERICAL] = float observation;
-[HEURISTIC]; [CONJECTURE]; [GOAL]. Per the standing rule, nothing below is
-measured in windows, margins, or infrastructure; the deliverables are the two
-theorems (§4, §5), the falsification (§3), and the bottleneck statement (§7).*
+*This file replaces BRIDGE v1 (in git history). v1's Theorem S proof contained a
+genuine gap (multiplicity vs distinct ordinates), its attainment claims were
+unproved, and its no-go corollaries N1–N3 overclaimed what Theorem R implies —
+one is refuted below by an explicit countermodel. Every claim now carries
+exactly one label:* **PROVED / PROVED-RH (conditional on RH) / PROVED-CERT
+(conditional on a repo Arb certificate) / MISSING-LEMMA (plausible, proof
+incomplete) / HEURISTIC / NUMERICAL / CONJECTURE / RETRACTED**.
 
----
+## 0. Audit verdict summary
 
-## 1. The chain, stated exactly
+| v1 claim | v2 status |
+|---|---|
+| Theorem S: RH ⇒ λ_min(L) > 0 ∀L | **PROVED-RH** after repair (distinct-zeros input added: Farmer 1995) |
+| Minimizer exists; λ_min attained; "true minimizer f_L" | **MISSING-LEMMA** (sketch in §4.3); all uses rewritten with ε-minimizers |
+| λ_min(L) = E(L) over Paley–Wiener class | **PROVED-RH** only with E defined over the same smooth core (§4.4) |
+| Theorem R (slack identities) | **PROVED** (unconditional, elementary) |
+| N1: no fixed finite dictionary certifies all C_L | **RETRACTED as consequence; OPEN as question** — countermodel §6.1 shows it does not follow from Theorem R |
+| N2: no fixed-precision cap method certifies all C_L | **RETRACTED as stated.** Correct version: Theorem R eliminates fixed nonvanishing slack, not approximation itself (§5.2) |
+| N3: only exact arithmetic cap identities can work | **RETRACTED** (interval/asymptotic evaluation with L-dependent precision is not excluded; needs only poly(L) digits if the measured λ_min decay rate is right) |
+| N4: the triple (P_T, Π_R, τ_{log 2}) is THE bottleneck | **RETRACTED as "forced"; relabeled: promising research object** |
+| μ-metric falsified as bridge mechanism | **PROVED-CERT** (stands; §3) |
+| Prime frequencies forced in tight minorants | **MISSING-LEMMA** (the forcing inequality is exact; the nonvanishing input is numerical) |
 
-Notation. For L > 0 let V_L^∞ = {f ∈ C_c^∞(ℝ, ℝ) : supp f ⊆ [−L, L],
-∫f(u)e^{u/2}du = ∫f(u)e^{−u/2}du = 0}. For f ∈ V_L^∞ put F(r) = ∫f(u)e^{iru}du,
-ν_f = (1/π)|F(r)|² dr on [0, ∞) (a probability measure when ‖f‖₂ = 1), and
+## 1. The chain (unchanged in substance; labels tightened)
 
-    W_L(f) = ∫ Ω_W^{(L)} dν_f ,
-    Ω_W^{(L)}(r) = Re ψ(¼ + ir/2) − log π − Σ_{2 ≤ n ≤ e^{2L}} 2Λ(n) n^{−1/2} cos(r log n).
+Notation as in v1 §1: V_L^∞, F, ν_f, W_L, Ω_W^{(L)}.
 
-(K1) [KNOWN — Weil 1952, Bombieri 2000, Yoshida 1992] RH ⟺ W(g∗g̃) ≥ 0 for all
-g ∈ C_c^∞. Quantifiers: every g, every support. Constant: none — the statement
-is nonnegativity, and by (K4) below it cannot be improved to a uniform positive
-lower bound.
+- (K1) [KNOWN] RH ⟺ W(g∗g̃) ≥ 0 for all g ∈ C_c^∞ (Weil/Bombieri/Yoshida).
+- (K2) [KNOWN; identity layer machine-checked in this repo] explicit-formula
+  identity; under RH the zero side is a nonnegative convergent sum.
+- (R1) [PROVED, Lean] RH ⇒ WeilPositivityAll.
+- (C_L) [CONJECTURE ∀L > ½log 2] W_L ≥ 0 on V_L^∞; (∀L C_L) ⟺ RH.
+- (K4) [CERTIFIED at three windows] λ_min(L) ≤ 8.11e−6 / 6.70e−7 / 3.21e−8 at
+  L = 0.64 / 0.68 / 0.72; [NUMERICAL] super-exponential decay rate;
+  [KNOWN-cited, unverified here] λ_min(L) → 0 (ζ-cycles mechanism).
 
-(K2) [KNOWN; the identity layer is REPO-PROVED in Lean via EF_lit] For f ∈ V_L^∞,
-W_L(f) equals the zero-side sum Σ_ρ m_ρ ĥ_f(γ_ρ) of the explicit formula
-(γ_ρ = (ρ−½)/i, complex in general); under RH each term is m_ρ|F(γ_ρ)|² ≥ 0.
+The missing bridge: an L-uniform proof mechanism for (C_L). All audited results
+below are about what such a mechanism can and cannot look like.
 
-(R1) [REPO-PROVED, Lean, sorry-free] RH ⇒ WeilPositivityAll (forward half of K1).
+## 2. Equality analysis (rewritten with ε-minimizers)
 
-(C_L) [CONJECTURE, one per L > 0] W_L(f) ≥ 0 for all f ∈ V_L^∞.
-  - Dependence on L: (∀L C_L) ⟺ RH by (K1) (any compactly supported g lies in
-    some window; the two pole constraints implement the quotient by the pole
-    directions).
-  - Constant behavior — this is the decisive structural fact: by Theorem S (§4)
-    the infimum λ_min(L) of W_L on the unit sphere of V_L^∞ is STRICTLY POSITIVE
-    for every fixed L under RH, and by (K4) it is NOT bounded below uniformly:
-    λ_min(L) → 0, at a super-exponential measured rate. So every C_L individually
-    is a positive-margin statement, but the family has margin exactly zero in the
-    limit. Any proof mechanism for the family must be exact in the limit.
-  - Status by window: C_L holds for L ≤ ½log 2 [KNOWN — Connes–Consani 2020,
-    prime-free window]. Pilot LP certificates exist at L = 0.40, 0.42
-    [NUMERICAL — float caps; not proofs]. Nothing at any L > ½log 2 is proved.
-  - Simplest kill: a certified negative eigenvalue of W_L for any L would
-    disprove C_L — and by (K2)+(R1) contrapositive, would disprove RH. (None
-    exists; certified positive enclosures exist on finite families.)
+For any valid certificate (§5) with value v and any unit f with
+W_L(f) ≤ λ_min(L) + ε: the minorant slack against ν_f and the weighted cap
+slack are each ≤ λ_min(L) + ε − v [PROVED, = Theorem R]. The further inference
+"tight minorants must contain the prime frequencies with the von Mangoldt
+coefficients" requires a lower bound on |∫cos(r log n) dν_f| along ε-minimizers:
+[NUMERICAL at measured windows; MISSING-LEMMA in general]. The limiting
+contact-at-zeros picture: [HEURISTIC].
 
-(K4) [CERTIFIED upper bounds + KNOWN mechanism] λ_min(L) admits rigorous upper
-bounds 8.11·10⁻⁶, 6.70·10⁻⁷, 3.21·10⁻⁸ at L = 0.64, 0.68, 0.72 (this repo, Arb
-enclosures), with measured local decay slopes −62 and −76 ± 5 [NUMERICAL]; the
-degeneration mechanism (small eigenvalues from growing windows) is the
-Connes–Consani ζ-cycles phenomenon [KNOWN-level, per the archive's reading of
-CC 2021; not re-derived here].
+## 3. μ-metric falsification (stands)
 
-**The missing bridge is exactly: an L-uniform proof mechanism for the family
-(C_L).** Everything else in the chain is either proved or is the target. The
-rest of this document audits the candidate mechanisms and proves what can be
-proved about them.
+[PROVED-CERT] The μ-metric formulation requires G_L ≻ 0 on the constrained
+space; Certified Result 5(a) exhibits a unit vector with
+vᵀG v = −0.02776113 ± 5.8·10⁻⁹ at L = 0.62; supports and constraints embed
+upward, so G_L is non-PSD for every L ≥ 0.62. Hence no G-metric contraction
+statement about prime shifts can be the mechanism for the family (C_L); the
+μ-inequality concerns only the first window. (Red-teamed in v1 §3; unchanged.)
 
----
+## 4. Theorem S, repaired
 
-## 2. Equality-case analysis: what an exact certificate must satisfy
+**Theorem S** [PROVED-RH]. Assume RH. For every L > 0,
+λ_min(L) := inf{W_L(f) : f ∈ V_L^∞, ‖f‖₂ = 1} > 0.
 
-Fix L, and let f_L be a minimizer of W_L on the unit sphere (existence: §4,
-step 1). Let m = c − Σ_j y_j σ_j be any valid dual minorant (y_j ≥ 0,
-m ≤ Ω_W^{(L)} pointwise, caps Λ_j ≥ sup_{‖f‖=1} ∫σ_j dν_f) with certificate
-value v = c − Σ y_j Λ_j. The two-line computation in §5 forces:
+**Proof.** Suppose not: take f_n ∈ V_L^∞, ‖f_n‖ = 1, W_L(f_n) → 0.
 
-  (E1) ∫ (Ω_W^{(L)} − m) dν_{f_L} ≤ λ_min(L) − v;
-  (E2) Σ_j y_j (Λ_j − ∫σ_j dν_{f_L}) ≤ λ_min(L) − v.
+*Step 1 (uniform spectral tails).* Stirling for ψ plus the finite prime sum
+give an explicit C_L with Ω_W^{(L)}(r) ≥ ½log(2+r) − C_L =: g(r) for all r ≥ 0.
+Since ν_n := ν_{f_n} is a probability measure and ∫g dν_n ≤ W_L(f_n) ≤ 1
+(eventually), while g ≥ −C_L everywhere:
+ν_n((R, ∞)) ≤ (1 + C_L) / (½log(2+R) − C_L) for all R with positive
+denominator — uniformly in n, tending to 0 as R → ∞.
 
-So a certificate with v ≥ 0 must be tight against the true minimizer's spectral
-measure, and must have every active cap saturated by the true minimizer, with
-TOTAL error at most λ_min(L) — a quantity that is strictly positive (§4) but
-certified-small and shrinking super-exponentially (K4). Consequences derived,
-with labels:
+*Step 2 (compactness).* The f_n share the compact support [−L, L] (spatial
+tightness) and have uniformly decaying Fourier tails (Step 1). By the
+Fréchet–Kolmogorov/Fourier compactness criterion — precisely: R. L. Pego,
+*Compactness in L² and the Fourier transform*, Proc. Amer. Math. Soc. 95
+(1985), 252–254, Theorem 1: a bounded S ⊂ L²(ℝ) is precompact iff S is
+L²-equitight in space and in frequency — a subsequence converges strongly in
+L²: f_n → f*, ‖f*‖ = 1, supp f* ⊆ [−L, L] (a.e. limit), and both pole
+constraints pass to the limit (inner products against e^{±u/2} ∈ L²[−L, L]).
+In particular f* ≠ 0. (f* need not be smooth; it is used only through F*.)
 
-- Why the prime frequencies must appear with the von Mangoldt coefficients
-  [derived, not dictionary-chosen]: (E1) forces m to track Ω_W^{(L)} on
-  supp ν_{f_L} to L¹(ν_{f_L})-error ≤ λ_min(L). The oscillatory content of
-  Ω_W^{(L)} on that support is exactly Σ 2Λ(n)n^{−1/2}cos(r log n); a minorant
-  missing any in-window frequency log n by coefficient δ pays ≍ δ·∫|cos(r log n)|dν
-  unless the minimizer's measure is itself orthogonal to that frequency —
-  which it is not (the minimizer's autocorrelation at lag log n is the prime-n
-  term of its Weil functional, nonzero throughout the active window)
-  [NUMERICAL for the nonvanishing; the forcing inequality is exact]. So the
-  coefficients are the explicit-formula weights, the measure is ν_{f_L}, and
-  the convergence mode is L¹(ν_{f_L}) with error ≤ λ_min(L) — never pointwise
-  (the pointwise sum diverges as L → ∞).
-- The limiting dual object [HEURISTIC, supported by the measured node structure
-  of minimizers]: as L grows, ν_{f_L} develops nodes at the zeta ordinates
-  (repo measurement; under RH this is the equality structure of (K2)), so the
-  exact minorant converges to a one-sided approximant of the explicit-formula
-  density with contact exactly on the zero set — a Beurling–Selberg-type
-  extremal object with arithmetic coefficients. Known constructions of such
-  minorants (Carneiro–Littmann–Vaaler school) are RH-conditional. An
-  UNCONDITIONAL construction with the required contact set would be a new kind
-  of object; nothing in the archive contains one.
+*Step 3 (F* vanishes at every zero ordinate).* F_n → F* uniformly on compact
+subsets of ℂ (Cauchy–Schwarz against e^{izu} on [−L, L]). For f_n ∈ C_c^∞ with
+the pole constraints, the explicit formula (K2) applies to k_n = f_n ∗ f̃_n
+(supp ⊆ [−2L, 2L], so exactly the prime powers n ≤ e^{2L} appear, and the pole
+terms vanish since F_n(±i/2) = 0), giving W_L(f_n) = Σ_ρ m_ρ|F_n(γ_ρ)|² under
+RH — a convergent sum of nonnegative terms. Hence for each fixed ordinate γ:
+m_γ|F_n(γ)|² ≤ W_L(f_n) → 0, so F*(γ) = lim F_n(γ) = 0. Under RH distinct
+zeros have distinct real ordinates, so F* vanishes on the set of distinct
+ordinates.
 
----
+*Step 4 (counting, repaired).* F* is entire with |F*(z)| ≤ √(2L)·e^{L|z|} and
+F* ≢ 0. If F*(0) ≠ 0 (else divide by z^k, which changes nothing below), Jensen's
+formula on the disc |z| ≤ 2T gives for the number n(T) of zeros in |z| ≤ T:
+n(T) ≤ [log max_{|z|=2T}|F*| − log|F*(0)|] / log 2 ≤ (2L/log 2)·T + O(1) —
+LINEAR in T, self-contained, no Cartwright theory needed.
+The distinct ordinates in (0, T] number N_d(T). **v1 gap:** N(T) counts with
+multiplicity; N(T)/max-multiplicity gives only a linear lower bound for N_d and
+does NOT contradict a linear upper bound for all L. **Repair:** unconditionally
+N_d(T) ≥ 0.6395·N(T) (D. W. Farmer, *Counting distinct zeros of the Riemann
+zeta-function*, Electron. J. Combin. 2 (1995), R1; alternatively ≥ (5/6 − o(1))·N(T)
+by the 2026 Claude paper's Theorem C, or, staying RH-conditional, Montgomery
+1973 gives ≥ (2/3)·N(T) simple). Hence
+N_d(T) ≫ T log T, which exceeds (2L/log 2)T + O(1) for T large — contradiction. ∎
 
-## 3. Track A audit: the μ-metric diagnosis is FALSIFIED as bridge mechanism
+*Audit notes.* Fourier convention: F(z) = ∫f(u)e^{izu}du, type ≤ L, matching
+the Jensen bound as computed; ν_f normalized to a probability measure by
+Plancherel (∫_ℝ|F|² = 2π‖f‖²). The proof uses RH twice: reality of ordinates
+(Step 3) and, if Montgomery is chosen, the distinct-count (Step 4) — with
+Farmer the counting input is unconditional.
 
-Claim under audit: "the bottleneck is an exact μ-metric inequality for windowed
-prime-shift operators," μ(L) = λ_min(G_L^{−1/2} Q₂ G_L^{−1/2}), T1 ⟺ G_L ≻ 0
-∧ μ(L) > −1.
+### 4.3 Attainment [MISSING-LEMMA]
 
-Falsification: the formulation requires G_L ≻ 0 (the archimedean form positive
-definite on the constrained window space). This FAILS beyond L* ≈ 0.59:
-- [CERTIFIED] Certified Result 5(a) of this repository: at L = 0.62 there is an
-  explicit unit vector v with vᵀG v = −0.02776113 ± 5.8·10⁻⁹ < 0. The
-  archimedean form is rigorously indefinite there; G^{−1/2} does not exist.
-- [NUMERICAL] L* = 0.59 ± 0.01 (N-convergence-corrected sweep).
+Existence of a minimizer (in the L²-closure V̄_L, with
+W_L(f*) = λ_min(L)) is *plausible* via: (a) the Step-1/2 compactness applied to
+a genuine minimizing sequence; (b) lower semicontinuity of the form (split
+Ω_W = Ω⁺ − Ω⁻, Ω⁻ bounded with compact support: dominated convergence on the
+compact part, Fatou on the rest); (c) density of V_L^∞ in V̄_L in form topology
+via dilation f(·/λ), mollification at scale < (1−λ)L, and re-projection of the
+two pole constraints against fixed smooth dual vectors. Steps (a), (b) are
+complete; (c) is routine but has two unwritten details (form-continuity of the
+constraint re-projection; domination for the dilation limit). Until (c) is
+written, no statement in this file uses an attained minimizer: everything is
+phrased with ε-minimizers, for which Theorem R is already exact.
 
-Hence: no statement about G-metric contractions of prime shifts can be the
-mechanism for C_L beyond the first prime window, because the metric itself
-ceases to exist strictly before the two-prime regime begins. For L > L*,
-positivity is created by the prime terms collectively (certified rescue pair,
-Result 5(b)) — the mechanism is not a perturbation of an archimedean-definite
-form in ANY metric derived from G. The μ-inequality survives only as a
-formulation of the single-window statement C_L, L < L*, and even there the
-stage-9 experiment shows its naive LP shadow (prime-oscillation rows) does not
-close C_{0.45}. Diagnosis replaced by §5's theorem.
+### 4.4 The envelope identity, correctly scoped
 
-Red-team of this audit: could a modified metric (e.g. G + εI, or the full W at
-a smaller window) restore a contraction formulation past L*? Any such
-formulation is a reparametrization of C_L itself (the form being conjugated is
-the object under question); the audit's point stands: there is no PROVEN
-positive-definite arithmetic-free anchor beyond L*, so "prime shift small in
-the archimedean metric" is not a candidate mechanism for the family.
+[PROVED-RH] λ_min(L) = inf{Σ_γ m_γ|F_f(γ)|² : f ∈ V_L^∞, ‖f‖ = 1} — the same
+smooth core on both sides; this is the explicit formula read as an identity of
+infima. Extending the right side to all of PW_L is MISSING-LEMMA (needs §4.3(c)
+plus lower semicontinuity of the zero-side sum). The super-exponential decay of
+this quantity remains NUMERICAL.
 
----
+## 5. Theorem R and what it actually implies
 
-## 4. Theorem S (strict window positivity under RH) — a proof, and what it settles
+**Theorem R** [PROVED, unconditional]. Fix L. Let (σ_j, Λ_j)_{j≤m} be bounded
+measurable functions with valid caps (∫σ_j dν_f ≤ Λ_j for every unit
+f ∈ V_L^∞), y_j ≥ 0, c ∈ ℝ with c − Σy_jσ_j ≤ Ω_W^{(L)} pointwise on [0, ∞),
+v := c − Σy_jΛ_j. Then W_L ≥ v on the unit sphere, and for every unit f with
+W_L(f) ≤ λ_min(L) + ε:
+(i) 0 ≤ ∫(Ω_W^{(L)} − c + Σy_jσ_j) dν_f ≤ λ_min(L) + ε − v;
+(ii) 0 ≤ Σ_j y_j(Λ_j − ∫σ_j dν_f) ≤ λ_min(L) + ε − v.
+Proof: expand W_L(f) as the sum of the two bracketed nonnegative quantities
+plus v. ∎
 
-**Theorem S.** Assume RH. For every L > 0, λ_min(L) := inf{W_L(f) : f ∈ V_L^∞,
-‖f‖₂ = 1} > 0.
+### 5.1 Consequences that survive audit
 
-**Proof.** Suppose λ_min(L) = 0 (the form is bounded below since the negative
-part of Ω_W^{(L)} is bounded). Take f_n ∈ V_L^∞, ‖f_n‖ = 1, W_L(f_n) → 0.
+- [PROVED] **Necessary tightness**: any certificate with v ≥ 0 has minorant
+  slack and weighted cap slack ≤ λ_min(L) against every ε-minimizer.
+- [PROVED, trivial] **Fixed-total-slack families fail**: if a family of
+  certificates has lim inf_L (total slack against some ε_L-minimizer, ε_L → 0)
+  > 0 while λ_min(L) → 0, then v_L < 0 for large L. (Conditional on
+  λ_min(L) → 0, i.e. on the cited ζ-cycles input.)
+- [DEFINITIONAL, clarifying] **Two separated obstructions.** Certification at
+  window L = (I) *dictionary completeness*: the exact-cap LP value
+  v_D(L) := sup over feasible (y, c) using true caps must be ≥ 0 — a question
+  about contact geometry of the finite family D; PLUS (II) *cap precision*:
+  approximate caps Λ̃_j = Λ_j + ε_j certify iff Σ_j y_j ε_j ≤ v_D(L). The
+  observed stall at L = 0.45 was an (I)-failure at float level, not a
+  (II)-failure. v1 conflated these.
 
-(1) No mass escape. Ω_W^{(L)}(r) ≥ ½ log(2 + |r|) − C_L for an explicit
-C_L < ∞ (Stirling for ψ plus the finite prime sum). Hence for every R,
-∫_{|r|>R} |F_n|² dr ≤ 2π (W_L(f_n) + C_L) / (½ log(2+R) − C_L) once the
-denominator is positive: the spectral tails are uniformly small. The f_n are
-supported in the fixed compact [−L, L] and bounded in L²; uniform spectral
-tail-smallness gives L²-precompactness (Kolmogorov–Riesz / Rellich in the
-Fourier picture). Pass to a subsequence: f_n → f* in L²; then ‖f*‖ = 1, f* is
-supported in [−L, L], and the two pole constraints pass to the limit. In
-particular f* ≠ 0.
+### 5.2 The retraction, stated plainly
 
-(2) The limit's transform vanishes on every zero ordinate. F_n → F* uniformly
-on compact subsets of ℂ (transforms of an L²-convergent, uniformly compactly
-supported sequence). By (K2) (explicit formula, valid for each f_n ∈ C_c^∞
-since supp(f_n ∗ f̃_n) ⊆ [−2L, 2L] admits exactly the prime powers n ≤ e^{2L}),
-and by RH (all γ_ρ real, all terms nonnegative): for every zero ordinate γ,
-m_γ |F_n(γ)|² ≤ W_L(f_n) → 0, hence F*(γ) = 0. So F* vanishes at every
-ordinate of every nontrivial zero.
+**Theorem R eliminates fixed nonvanishing slack, not approximation itself.**
+From (II): adaptive-precision certified evaluation with
+Σ_j y_j(L) ε_j(L) ≤ v_D(L) is fully compatible with Theorem R. If the measured
+decay λ_min(L) ≈ e^{−cL·(60…80)/…} is right, the required precision is
+log(1/λ_min(L)) = O(L) DIGITS — polynomial in L. The architecture is therefore
+NOT information-theoretically excluded from verifying any single window;
+what no finite computation supplies is the ∀L quantifier, and nothing proved
+here precludes an analytic, L-uniform cap family either. v1's N2/N3 are
+retracted accordingly.
 
-(3) Counting kills F*. F* is entire of exponential type ≤ L with F*|ℝ ∈ L²
-(Paley–Wiener class PW_L), and F* ≢ 0. A nonzero function in PW_L has at most
-(L/π + o(1))·T zeros in [0, T] (Cartwright/Levinson density; already a Jensen
-estimate suffices for an upper bound of the form (L/π)T + O(log T)). But the
-number of zeta ordinates in [0, T] is N(T) = (T/2π) log(T/2πe) + O(log T)
-(Riemann–von Mangoldt, unconditional), which exceeds (L/π + 1)T for T large
-since log T → ∞. Contradiction. ∎
+## 6. Countermodels (mandatory audit artifacts)
 
-Red-team (Phase 5 checklist). Extremizing sequences: handled — the proof is
-exactly about them; compactness prevents the only escape channel (high
-frequency), which the log-growth of Ω penalizes. Hidden L-dependence: C_L and
-the type bound depend on L; the conclusion is per-L, and NO uniformity in L is
-claimed — indeed (K4) forbids it. Circularity: RH is an explicit hypothesis;
-the theorem is about the structure of the target, not progress toward RH.
-Finite vs full space: the statement is on all of V_L^∞. Equivalent-restatement
-check: Theorem S is strictly weaker than RH (it assumes it) — its role is to
-settle the repository's open dichotomy, not to advance the chain.
+**6.1 Fixed dictionary, zero slack, λ_L → 0** (kills "N1 follows from R").
+State space [0, 1]; achievable measures at stage L: the single ν_L = δ_{b}
+with b fixed; cost Ω_L(r) = r − a_L, a_L = b − λ_L, λ_L → 0⁺. Then
+λ_min(L) = λ_L → 0. Dictionary: the single fixed σ(r) = −r with the single
+fixed EXACT cap Λ = −b. Certificate at stage L: y = 1, c = −a_L (weights may
+depend on L): minorant c − yσ = r − a_L = Ω_L, pointwise with equality;
+v = c − yΛ = b − a_L = λ_L ≥ 0. A fixed one-element dictionary with a fixed
+exact cap certifies every stage with slack identically zero. Conclusion: no
+theorem of the R type can rule out fixed finite dictionaries without ADDITIONAL
+problem-specific input (cap inexactness, or contact sets not representable in
+the dictionary's span).
 
-**What it settles.** FINDINGS Tier 3 left open whether completion-criticality
-is exact (λ_min = 0 at completed windows) or positivity below numerical
-resolution. Under RH: strictly positive, always. Moreover the argument gives
-the exact variational identity λ_min(L) = E(L) := min{Σ_γ m_γ |F(γ)|² :
-F ∈ PW_L, ‖f‖ = 1, pole constraints} — the "criticality envelope" (Gap 4's
-surviving problem) IS the Paley–Wiener zero-energy extremal problem, and the
-measured super-exponential decay is the interlacing-capacity phenomenon in
-exact form. [The identity is proved; the decay RATE remains NUMERICAL.]
+**6.2 Adaptive precision tracks any decay.** Same toy; cap known only as
+Λ̃(L) = −b + ε(L). Certification: v = λ_L − ε(L) ≥ 0 iff ε(L) ≤ λ_L. Nothing
+prevents certified interval evaluation of b to accuracy λ_L; the digit cost is
+log(1/λ_L). Arbitrarily fast decay of λ_L raises cost, never impossibility.
 
----
+**6.3 Dual weights absorb cap error.** Two-element dictionary: σ_a exact,
+σ_b with error ε_b. Any certificate with y_b(L) → 0 fast enough has
+Σy_jε_j = y_b(L)ε_b → 0 ≤ v_D(L). The correct error functional is Σy_jε_j,
+never max_j ε_j — sloppy caps are harmless wherever their dual weight vanishes.
 
-## 5. Theorem R (certificate rigidity) and the no-go corollary
+## 7. N-statuses and the corrected bottleneck
 
-**Theorem R.** Fix L. Let {(σ_j, Λ_j)}_{j≤m} be any finite family with each σ_j
-bounded measurable and each cap VALID: ∫σ_j dν_f ≤ Λ_j for every unit f ∈ V_L^∞.
-Let y_j ≥ 0 and c ∈ ℝ satisfy c − Σ y_j σ_j ≤ Ω_W^{(L)} pointwise on [0, ∞),
-and set v = c − Σ_j y_j Λ_j (the certified lower bound: W_L ≥ v on the unit
-sphere). Then for every unit f with W_L(f) ≤ λ_min(L) + ε:
+| statement | status after audit |
+|---|---|
+| N1 (no fixed finite dictionary, all L) | **OPEN** — not a consequence of R (§6.1); would need a lower bound on the best-achievable dictionary slack for THIS Ω_W-family |
+| N2 (no fixed-precision method) | **FALSE as stated**; true content is §5.1(II)+§5.2 |
+| N3 (exact identities necessary) | **RETRACTED** — non-exact alternatives not excluded |
+| N4 (the shift triple is THE bottleneck) | **RETRACTED as forced**; remains a promising object |
 
-  (i) 0 ≤ ∫(Ω_W^{(L)} − (c − Σ y_j σ_j)) dν_f ≤ λ_min(L) + ε − v;
-  (ii) 0 ≤ Σ_j y_j (Λ_j − ∫σ_j dν_f) ≤ λ_min(L) + ε − v.
+**Corrected narrowest forced questions** (ranked by logical necessity, per the
+corrected chain — every certificate route needs both, and every route of any
+kind needs the first):
 
-**Proof.** W_L(f) = ∫Ω_W dν_f = ∫(Ω_W − m)dν_f + c − Σ y_j ∫σ_j dν_f
-= ∫(Ω_W − m)dν_f + Σ y_j(Λ_j − ∫σ_j dν_f) + v. Both bracketed quantities are
-nonnegative (pointwise minorant; valid caps with y ≥ 0), and their sum is
-W_L(f) − v ≤ λ_min(L) + ε − v. ∎
+1. **(Route C) Effective asymptotics for λ_min(L) under RH** — the envelope
+   E(L) of §4.4. Every budget in §5.1 is stated relative to λ_min(L); today it
+   is known only as three certified upper bounds and a float slope. A proven
+   two-sided estimate (under RH; via the Paley–Wiener zero-energy extremal —
+   interlacing capacity vs zero density) would convert every "→ 0" above into
+   explicit form and would decide whether the poly(L)-digit feasibility claim
+   of §5.2 is real. This is a well-posed extremal problem NOT equivalent to RH
+   (it presupposes RH), attackable with de Branges/PW space methods.
+2. **(Route B/D gate) Dictionary completeness at the stall**: determine whether
+   v_D(0.45) ≥ 0 for SOME finite multiplier-cap dictionary with exact caps —
+   i.e. whether the stall is a completeness ceiling of the multiplier frame or
+   an artifact of the families tried. (Discriminating experiment: §8.G.)
+3. **(Route A, contingent) A slack lower-bound theorem** — only worth
+   attacking if 2 shows a plateau: prove the analogue of N1 for this Ω_W-family
+   by exhibiting contact structure not representable by finitely many bounded
+   multipliers (the missing "additional input" of §6.1).
+4. (Route E, demoted) Exact spectral theory of (P_T, Π_R, τ_{log 2}):
+   promising, not forced.
+5. (Route F) Abandoning multiplier caps: premature before 2 is answered.
 
-**Corollary (no-go for slack-bearing certificate families).** Suppose RH. Any
-family of certificates {D_L} with values v_L ≥ 0 must satisfy: total minorant
-slack against the true minimizers, and total cap slack on active rows, both
-≤ λ_min(L) — which is > 0 (Theorem S) but ≤ 3.21·10⁻⁸ already at L = 0.72
-[CERTIFIED] and decreasing super-exponentially [NUMERICAL]. In particular:
+## 8. Required final report
 
-1. No L-independent finite dictionary with L-independent cap values certifies
-   the family (its slack is bounded below by a positive constant while the
-   allowance → 0).
-2. Any certifying family must EVALUATE its active caps to accuracy λ_min(L):
-   estimation with any fixed relative precision fails beyond an explicit L.
-   Every cap-production method in this repository (trace bounds, Frobenius
-   bounds, float eigensolvers, Nyström-certified enclosures at fixed precision)
-   carries slack bounded below per-method; each is therefore individually
-   eliminated as the engine of an L-uniform proof. This converts the observed
-   stall at L ∈ (0.42, 0.45) from an empirical failure into a structural one.
-3. What is NOT ruled out — stated precisely, because it is the honest fork:
-   caps whose values are produced by EXACT ARITHMETIC IDENTITIES (zero slack by
-   construction) rather than by estimation. No such identity for any cap
-   containing a prime frequency exists in the archive or, to this session's
-   knowledge, in the literature. [Interpretive addendum, labeled HEURISTIC:
-   by (E1)–(E2) the exact cap values encode the minimizers' spectral data,
-   which encodes the zeros (§2); so "exact arithmetic caps" is a demand that
-   arithmetic compute spectral data equivalent to zero locations — the
-   Hilbert–Pólya demand in LP coordinates.]
+**A.** Theorem S survives with its original statement, PROVED-RH, with the
+repaired proof above (Farmer 1995 distinct-zeros input; self-contained Jensen
+counting; Pego compactness).
+**B.** Gaps found in v1's proof: (i) multiplicity/distinct-ordinates conflation
+(fatal as written for large L; repaired); (ii) attainment claims unproved
+(downgraded to MISSING-LEMMA §4.3, all uses rewritten with ε-minimizers);
+(iii) E(L) identity mis-scoped (fixed, §4.4); (iv) tail-bound constants
+(cosmetic; verified).
+**C.** Theorem R survives verbatim, PROVED; of its v1 corollaries only
+necessary-tightness and fixed-total-slack-failure survive; the two-obstruction
+decomposition is the useful new formulation.
+**D.** N1 OPEN; N2 FALSE as stated; N3 RETRACTED; N4 RETRACTED as forced.
+**E.** Countermodels §6.1–6.3 (fixed exact dictionary with zero slack;
+adaptive precision tracking any decay; dual-weight error absorption).
+**F.** Corrected narrowest bottleneck: effective two-sided asymptotics for the
+envelope E(L) = λ_min(L) under RH (rank 1), then dictionary completeness at the
+stall (rank 2). The shift-triple is demoted to rank 4.
+**G.** The discriminating experiment: at L = 0.45, compute v_D with
+high-precision (near-exact) caps for a nested sequence of dictionaries chosen
+by cutting planes, tracking v_D against the certified bracket for λ_min(0.45).
+If v_D ↑ crosses 0: the frame is complete-in-principle and Route D (adaptive
+precision) + Route C (envelope asymptotics) carry the program; if v_D plateaus
+strictly below 0 across dictionary families: Route A (a real N1-type theorem)
+becomes the target, with the plateau data pointing at the non-representable
+contact structure. Either outcome is a theorem-shaped fact about the frame.
 
-Red-team. The theorem is elementary and unconditional; the corollary's parts
-1–2 use Theorem S (RH-conditional) and (K4)-certified smallness — for the
-purpose of a no-go against PROVING RH this conditioning is legitimate (if RH is
-false the certificates' target is false anyway). Part 3 is where the content
-lives and is labeled. Could a certificate avoid the frame by using non-diagonal
-information (not of the form ∫σ dν)? Yes in principle — quadratic-form caps
-tied to non-multiplier operators fall outside Theorem R's scope; that is Track
-C's opening, recorded in §7. The no-go is exactly scoped: it eliminates the
-σ-LP/multiplier-cap architecture as an estimation-based route, which is the
-architecture this repository built and the one under audit.
-
----
-
-## 6. Track B consolidation: the exact object, characterized
-
-Assembling §2, §4, §5: the exact certificate at window L is the spectral
-decomposition of the constrained operator P_V Ω_W^{(L)}(D) P_V at its bottom;
-its dual expression is a minorant touching Ω_W^{(L)} on the minimizer's
-spectral support with contact error ≤ λ_min(L); in the L → ∞ limit the contact
-set is (under RH, measured) the zero set, and the object is an unconditional
-arithmetic construction of a Beurling–Selberg-type minorant interpolating the
-explicit-formula density at its own zeros. Every route to such an object in
-the literature presupposes the zeros (RH-conditional extremal theory) or
-constructs the spectrum directly (Hilbert–Pólya program). The LP/certificate
-frame therefore does not sidestep the classical difficulty; it reproduces it
-with cleaner bookkeeping. This is the honest content of the observed log p
-dual residuals: they are the shadow of the interpolation conditions.
-
----
-
-## 7. Report
-
-**A. Proved.** Theorem S (strict window positivity + attainment structure under
-RH; settles the exact-criticality dichotomy; identifies the criticality
-envelope with the PW zero-energy extremal, exactly). Theorem R (certificate
-rigidity, unconditional) with its no-go corollary parts 1–2 (conditional
-exactly as labeled).
-
-**B. Disproved.** (a) The μ-metric prime-shift inequality as the bridge
-mechanism (falsified by the repo's own certified indefiniteness at L = 0.62 —
-the metric does not exist where the mechanism is needed). (b) Exact
-completion-criticality (under RH; Theorem S). (c) Slack-bearing certificate
-families as an L-uniform proof engine (Theorem R corollary 1–2).
-
-**C. Conjectural.** The C_L family for every L > ½log 2 (equivalently RH); the
-decay rate of λ_min(L); the node-convergence of minimizer spectra to the zero
-set (measured, unproved); the nonexistence of exact arithmetic cap identities
-(if provable, it would close the certificate route entirely).
-
-**D. The single narrowest unresolved statement.** Exact joint spectral theory
-of the triple (P_T, Π_R, τ_{log 2}) — the window projection, a band projection,
-and the single prime shift: produce an exact (closed-form arithmetic, not
-estimated) evaluation of the extremal spectral data of one nontrivial
-compression mixing τ_{log 2} with band-limiting on a window. This is a
-well-posed problem in the harmonic analysis of three non-commuting projections/
-shifts; it is manifestly NOT an RH restatement (it concerns one prime, one
-window, no zeros).
-
-**E. Why it matters.** By Theorem R, any certificate proof of C_L beyond the
-stall REQUIRES caps evaluated to accuracy λ_min(L); by §5.3 only exact
-identities can supply them; the minimal such identity involves exactly this
-triple. Solving it either revives the certificate architecture with exact
-inputs (and its generalization to all τ_{log p} becomes the program), or its
-provable intractability upgrades the no-go from "estimation fails" to "the
-architecture fails," forcing the spectral-realization routes. Either outcome
-moves the chain: it is the fork the whole frame now rests on.
-
-**F. Strongest reason the route may still fail.** The interpretive half of
-§5.3: exact arithmetic caps may be equivalent to knowing the zeros — the
-shifts τ_{log p} for all p generate (by rational independence of the log p) a
-system whose joint spectral data plausibly has no closed form short of the
-zeros themselves; in that case every certificate is circular, positivity
-cannot be established by any estimation-or-evaluation route, and the only exit
-is constructing the spectral realization itself — which is the original
-problem, unsolved for 166 years. Nothing in this session reduces that
-possibility; Theorem R makes it sharper.
+*Session verdict: v1's no-go was overstated; the audit that found this is the
+session's result, per the directive's own success criterion.*
