@@ -123,3 +123,23 @@ NEXT SESSION: execute SOLVER §13 GLOBAL RESET first (rerank without sunk
 cost; the recomputed primary is the rank-3-compressed first-order flow, but
 the reset must weigh it against the orthogonal reserve with fresh eyes),
 then open cycle 2 on the reranked frontier node.
+
+---
+POST-RESET-1 STATE (see RESET-1.md for the full adjudication):
+PRIMARY = §7.7 defect formula (D(x,y) as explicit zero-sum; D ⪰ 0 suffices;
+one-cycle = computation, non-RH-complete). CHALLENGER = Lee–Yang/FKG
+ferromagnetic-flow mechanism (monotone real-zero motion replacing zero-slack
+comparison). RESERVE = CvS prime-cutoff obstacle-(a) (published CMP frame;
+S1 crossing tech ports). Incumbent rank-3 flow demoted to cartography.
+Literature deltas (evaluator D): Suzuki [14] v3 (CJM, unconditional surrogate
+spaces + HP section); Connes–van Suijlekom CMP 406:312 (general simple-even ⇒
+real ξ̂-zeros; θ_x prime-cutoff coordinate); Śliwiński 2601.12133 (PROVEN
+1/(4 ln λ) dissonance floor — CCM eigenvalue convergence at best inverse-log);
+Kim et al 2607.24830 (first A_a numerics; replicates the rate dictionary;
+γ_arch input; W(a,0;z) real zeros); CCM "Prolate→Cohomology" in prep
+(collision risk on geometric route); S1's LK mechanism = Suzuki §5 technique
+(novelty limited to every-a extension + parity gap + crossing criterion);
+Groskin certification budget overlaps the five-window niche (outreach urgency
+UP). Cycle-2 fleet: P1 (Gram explicit formula + convergence), P2 (off-line
+pair + sign), C1 (Lee–Yang toy), C2 (FKG vs screening), R1 (CvS sector), L1
+(route-everyone-missed); hostile referee follows on their artifacts.
