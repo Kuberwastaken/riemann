@@ -208,3 +208,31 @@ narrative in `logs/LOG.md`; one commit per artifact throughout.
 
 *Everything above is labeled honest-first: pilot numerics are pilot numerics,
 certified results say certified, and none of it is RH.*
+
+---
+
+## 2026-08-11 — Session phase 2: the Lean layer opens (same day)
+
+Directive: "explore an RH Lean formal proof." Honest resolution, recorded before
+any work: **no proof of RH exists to formalize**; the executable program is the
+Anthropic playbook — formalize the strongest true statements available, and
+build the formal *reduction* so future increments accumulate toward RH's
+formal statement. Products (see `formal/README.md`, `logs/LOG.md`):
+
+- **Infrastructure**: anthropics/zeta-23-lean surveyed — its hypothesis-free
+  literature-form Weil explicit formula (`EF_lit_zetaZeroConfig`) is exactly the
+  criterion layer's hard core, formalized, Apache-2.0, one day old. Our
+  `RiemannFormal` package pins its toolchain/Mathlib and builds against the
+  shared cache.
+- **The criterion stated formally** (`Criterion.lean`, dev): `WeilPositivityAll`,
+  `weil_positivity_of_RH` (RH ⇒ arithmetic side PSD; full proof route via
+  EF_lit documented in-file), and `WeilCriterion` as the machine-readable
+  reduction target. Compiles once the Zeta23 library is built (in progress).
+- **Three theorems proven sorry-free** (axiom-audited): Lemma 1 (the sharp
+  half-factor prime bound — the laboratory's first machine-verified result),
+  the σ-LP dual assembly, and `T1_of_certificate` — the conditional form of
+  full-space one-prime Weil positivity, the formal skeleton of the same-day
+  pilot result at L = 0.40 (+0.0349).
+- The gap between the pilot and an unconditional Lean theorem is now exactly
+  two named objects: the Parseval convention bridge, and Lean-certified
+  spectral caps. Both are bounded projects, not open mathematics.

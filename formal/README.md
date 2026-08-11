@@ -14,15 +14,21 @@ What is possible, and is this directory's program:
    positivity increment plugs into. The RH ⇒ positivity direction is close to
    immediate from `EF_lit_zetaZeroConfig`; the converse (Bombieri's argument) is
    the serious part.
-2. **The increments** (this package, Mathlib-only):
+2. **The increments** (this package, Mathlib-only) — *status 2026-08-11: all
+   three PROVEN, sorry-free, axiom-audited (propext/Classical.choice/Quot.sound
+   only), statements as designed with no added hypotheses*:
    - `Lemma1.lean` — the sharp half-factor bound |g_f(a)| ≤ ½‖f‖² (the
-     laboratory's prime-norm bar). Elementary; target: complete proof.
+     laboratory's prime-norm bar). **Proven** — indicator support bookkeeping +
+     pointwise AM–GM + translation invariance + a.e.-disjointness.
    - `SigmaLPAssembly.lean` — the σ-LP dual assembly inequality, the glue step
-     of the T1 certificate (SHARP-FLOOR.md). Target: complete proof.
-   - `T1Certificate.lean` (planned) — Ω_W and the admissible class defined
-     concretely; T1(L = 0.40) as a **conditional** theorem: finitely many named
-     spectral-cap hypotheses ⊢ full-space Weil positivity on the window. Each
-     cap is then independently dischargeable (frequency-side Nyström route).
+     of the T1 certificate (SHARP-FLOOR.md). **Proven.**
+   - `T1Certificate.lean` — Ω_W and the admissible class defined concretely;
+     T1 at a window as a **conditional** theorem: finitely many named
+     spectral-cap hypotheses + Parseval ⊢ full-space Weil positivity.
+     **Proven** (integrability of ‖FT f‖² derived from Parseval, not assumed).
+     Remaining to make the L = 0.40 instance unconditional: discharge hParseval
+     (Mathlib Plancherel, 2π-convention translation) and the caps themselves
+     (frequency-side Nyström certification, transported).
 3. **The frontier, machine-readable**: the open analytic statements (Lemma X of
    T1-GRADED.md; the caps; the unbounded-support limit) stated as `Prop`s with
    documentation, never as `sorry`s in committed proofs of record.
