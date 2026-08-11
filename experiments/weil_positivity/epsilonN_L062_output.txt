@@ -1,0 +1,36 @@
+# epsilonN_certify L=0.62 N=24 dps=25 tail_target=1.0e-09 primes=[2, 3]
+# CCM dictionary: lambda = e^L = 1.858928 (interval [1/lambda, lambda], evenness = invariance under u -> 1/u)
+parity checks (all balls must contain 0):
+  prime cross-parity entry (1,2): [+/- 2.89e-25]  contains0=True
+  v+_2 (cosh, k even): [+/- 4.75e-25]  contains0=True
+  v-_1 (sinh, k odd):  [+/- 5.52e-26]  contains0=True
+  vp_1-(v+_1+v-_1): [+/- 9.77e-25]  contains0=True
+  vm_2-(v+_2-v-_2): [+/- 1.03e-24]  contains0=True
+  parity structure verified: True
+# using 7 worker processes
+  sector even: 78 entries done (pool) t=23s
+  sector odd: 78 entries done (pool) t=38s
+entries done t=38s; R_entry range [3403, 30074]
+
+[U] UNCONSTRAINED 24x24 sections (pole term inside the form; dim 24 = 12 even + 12 odd)
+U even sector: delta=3.21e-15  clusters: 1 in [-3.4320564309e-08, 3.5111797193e-08] | 1 in [3.5624717724e-05, 3.5709751943e-05] | 1 in [1.4250677104e-01, 1.4250688950e-01] | ...
+U odd  sector: delta=7.29e-14  clusters: 1 in [1.4322388885e-07, 2.1460529923e-07] | 1 in [3.9309586126e-03, 3.9310461707e-03] | 1 in [6.6735282263e-01, 6.6735297299e-01] | ...
+[U] eps_N enclosure (Gershgorin): [-3.4320564309e-08, 3.5111797193e-08]
+[U] certified sign (Gershgorin): UNDECIDED
+[U] sector of minimizer: EVEN (certified: min even cluster [-3.432056e-08, 3.511180e-08] < other-sector min >= 1.432239e-07)
+[U] SIMPLICITY: certified. lambda_2 in [1.4322388885e-07, 2.1460529923e-07]; certified gap lambda_2 - lambda_1 >= 1.0811209165e-07
+[U] ball-Cholesky sign certificate: none (lambda_min <= 0 or enclosures too wide)
+
+[C] POLE-CONSTRAINED family (explicit float Q per sector; dim 22 = 11 + 11)
+C even sector: constraint residual <= 8.7e-17  delta=3.66e-15
+  clusters: 1 in [2.2867956875e-05, 2.2963338695e-05] | 1 in [1.2250274859e-01, 1.2250289502e-01] | 1 in [8.7026324831e-01, 8.7026338594e-01] | ...
+C odd sector: constraint residual <= 6.4e-18  delta=4.39e-15
+  clusters: 1 in [1.5219181645e-03, 1.5220540497e-03] | 1 in [6.1704722780e-01, 6.1704745367e-01] | 1 in [9.1288738362e-01, 9.1288760445e-01] | ...
+[C] eps_N enclosure (Gershgorin): [2.2867956875e-05, 2.2963338695e-05]
+[C] certified sign (Gershgorin): POSITIVE
+[C] sector of minimizer: EVEN (certified: min even cluster [2.286796e-05, 2.296334e-05] < other-sector min >= 1.521918e-03)
+[C] SIMPLICITY: certified. lambda_2 in [1.5219181645e-03, 1.5220540497e-03]; certified gap lambda_2 - lambda_1 >= 1.4989548258e-03
+[C] ball-Cholesky sign certificate: W >= 2.2457334829e-05 ||f||^2 on the explicit 22-dim family
+[C] COMBINED certified enclosure: eps_N in [2.2867956875e-05, 2.2963338695e-05]
+
+total time 38 s  (dps=25, tail_target=1.0e-09)
