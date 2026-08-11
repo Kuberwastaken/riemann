@@ -54,3 +54,20 @@ RH", "needs more work" are NOT terminal.
     the terminal-blocker standard — NOT until the current line fails.
 17. Communication: surface only major theorems, route kills, collisions,
     frontier shifts, proof candidates, terminal blockers. Logs stay in-repo.
+
+## GLOBAL RESET — BLIND RERANKING PROTOCOL (installed 2026-08-11)
+Resets follow the 8-step blind protocol (freeze snapshot; ≥5 candidates, ≥3
+orthogonal; blind evaluators A–E with A math-state-only, B forbidden-primary,
+C reformulation-detector, D literature, E mechanism-historian; proof-distance
+scoring; one-cycle test — both outcomes must be useful, never "need a better
+bound"; PRIMARY/CHALLENGER/RESERVE with challenger ≥20% resources and
+mathematical orthogonality; reformulation-loop detection with HARD-WALL
+marking — coordinates alone are not progress; reset output form; immediate
+cycle execution). AUTO-RERANK: three consecutive cycles without structural
+shortening of the proof chain force PRIMARY↔CHALLENGER, no human input.
+
+## FRONTIER METRICS (recompute and answer after every cycle)
+FRONTIER DEPTH / RH-COMPLETE NODES / NON-RH-COMPLETE OPEN NODES ON SHORTEST
+PATH / HARD-WALL NODES, plus the mandatory PI answer to: "Did the shortest
+proof chain get structurally shorter?" Consecutive-no counter drives the
+auto-rerank.
