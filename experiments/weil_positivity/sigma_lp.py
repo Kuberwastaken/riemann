@@ -58,7 +58,13 @@ def sigma_pair_vals(r, c, a):
     return v
 
 def run_L(L, n=1200, Rmax=22.0, dR_caps=0.25, dr_meas=0.05,
-          centers=None, widths=(1.5, 3.0), ktop=70, report_m2=True):
+          centers=None, widths=(1.5, 3.0), ktop=70, report_m2=True,
+          objective=None, tail_value=None):
+    """objective: callable r -> cost (default Omega). tail_value: rigorous lower
+    bound for inf_{r >= Rmax} objective(r) (default objective(Rmax), valid for
+    monotone Omega). For the FULL one-prime form use
+    objective = lambda r: Omega(r) - sqrt(2)*log(2)*cos(r*log 2) and
+    tail_value = Omega(Rmax) - sqrt(2)*log(2)  (valid since Omega increases)."""
     u, w, v1, v2, K = build_operator(L, n)
     du = u[:, None] - u[None, :]
     sw = np.sqrt(w)
@@ -92,7 +98,10 @@ def run_L(L, n=1200, Rmax=22.0, dR_caps=0.25, dr_meas=0.05,
 
     # --- LP over measures on a fine r-grid ---
     r = np.arange(0.0, Rmax + 1e-9, dr_meas)
-    Om = np.array([Omega(x) for x in r])
+    if objective is None:
+        Om = np.array([Omega(x) for x in r])
+    else:
+        Om = np.array([objective(x) for x in r])
     ncap = len(Rg)
     A_ub, b_ub = [], []
     for kk in range(1, ncap):                       # cumulative caps
@@ -104,7 +113,7 @@ def run_L(L, n=1200, Rmax=22.0, dR_caps=0.25, dr_meas=0.05,
     # Tail treatment: mass not placed on the grid sits beyond Rmax, worth at least
     # Omega(Rmax) (Omega increasing) — always feasible, conservative, and exactly
     # PROOF-c0's tail device.  min  sum (Om_i - Om_max) m_i + Om_max  s.t. sum m <= 1.
-    OmMax = Om[-1]
+    OmMax = Om[-1] if tail_value is None else tail_value
     cost = Om - OmMax
     A_ub.append(np.ones_like(r)); b_ub.append(1.0)      # total mass <= 1
     n_tot = 1

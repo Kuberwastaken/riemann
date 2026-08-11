@@ -1,0 +1,24 @@
+prime bar (log2)/sqrt2 = 0.490129
+floors m(L): G(f) >= m(L)||f||^2 on the constrained space, by cap used
+       L |    trace    tr^m2       m2       m4       m6    exact     best | verdict(best)
+ 0.34657 |   0.3492   0.4279   0.4279   0.4591   0.4668   0.4753   0.4753 | below bar
+Traceback (most recent call last):
+  File "/Users/kuber.mehta/Projects/reimann/experiments/weil_positivity/sharp_floor.py", line 117, in <module>
+    f = run(L)
+  File "/Users/kuber.mehta/Projects/reimann/experiments/weil_positivity/sharp_floor.py", line 92, in run
+    lam = constrained_spectrum(KR, v1, v2, ktop=ktop)
+  File "/Users/kuber.mehta/Projects/reimann/experiments/weil_positivity/sharp_floor.py", line 67, in constrained_spectrum
+    vals = eigsh(A, k=k, which='LA', return_eigenvectors=False)
+  File "/Users/kuber.mehta/Projects/reimann/.venv/lib64/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py", line 1700, in eigsh
+    params.iterate()
+  File "/Users/kuber.mehta/Projects/reimann/.venv/lib64/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py", line 549, in iterate
+    self.workd[yslice] = self.OP(self.workd[xslice])
+  File "/Users/kuber.mehta/Projects/reimann/.venv/lib64/python3.9/site-packages/scipy/sparse/linalg/_interface.py", line 236, in matvec
+    y = self._matvec(x)
+  File "/Users/kuber.mehta/Projects/reimann/.venv/lib64/python3.9/site-packages/scipy/sparse/linalg/_interface.py", line 203, in _matvec
+    return self.matmat(x.reshape(-1, 1))
+  File "/Users/kuber.mehta/Projects/reimann/.venv/lib64/python3.9/site-packages/scipy/sparse/linalg/_interface.py", line 340, in matmat
+    Y = self._matmat(X)
+  File "/Users/kuber.mehta/Projects/reimann/.venv/lib64/python3.9/site-packages/scipy/sparse/linalg/_interface.py", line 800, in _matmat
+    return self.A.dot(X)
+KeyboardInterrupt
