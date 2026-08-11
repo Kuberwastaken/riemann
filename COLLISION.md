@@ -168,7 +168,11 @@ K = −g″; edge-locality = screw kinks).
 **B.** Known already: continuity (Suzuki 1.3), ground state (CCM 3.6/3.7),
 density/core (Suzuki Cor 1.2, CCM 3.4), first-failure degeneracy (Suzuki after
 1.3 + Yoshida Thm 2), almost-positivity endpoint (CCM Cor 3.8), monotonicity
-(CCM 3.27), small-a positivity (Yoshida Lemma 2), small-a simple-even (Suzuki
+(CCM 3.27), base-window positivity — **Yoshida Thm 1 (p. 310): pole-inclusive
+positive definiteness on the FULL prime-free class K(½log 2), via a rigorously
+error-bounded 200-mode computation in 1992** (Lemma 2 is the general-field
+qualitative version; his Prop. 6 = failure threshold, Thm 2 = nondegeneracy ⟺
+RH, Lemma 3/(5.18) = high-mode log-coercivity) — small-a simple-even (Suzuki
 1.4), edge/threshold structure (screw function (1.3)/(2.2)).
 **C.** Genuinely surviving from this repo: the five-window certified
 verification of CCM's obstacle (a) (unique evidence between Suzuki's small-a

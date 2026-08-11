@@ -26,10 +26,16 @@ functional, and
 Advantages over the constrained C_L: (a) restriction f ↦ f·1_I does not leave
 the space — block decompositions need no constraint corrections; (b) the pole
 term is an explicit rank-2 bilinear 2a₊a₋ with kernel 2cosh((x−y)/2), handled
-like any other term. Base case: positivity of Z for sufficiently small support
-is Yoshida's short-interval positivity [KNOWN-cited: Yoshida 1992; exact
-statement and admissible ℓ₀ to be re-verified against the source — flagged].
-Note C'_L ⇒ C_L; the repo's constrained results live inside this frame.
+like any other term. Base case [UPGRADED after primary-source acquisition,
+2026-08-11 phase 4; papers/criteria/Yoshida-1992-hermitian-forms-zeta.pdf]:
+**Yoshida Theorem 1 (p. 310): the pole-inclusive form is positive DEFINITE on
+K(½log 2)** — the FULL prime-free window with exact endpoint a = ½log 2
+(⊇ C_c^∞(−a, a) for a ≤ ½log 2), including the odd-parity case where the pole
+square enters negatively — proved by a rigorously error-bounded 200-mode
+Fourier computation (1992; the ancestor of this repo's certified-positivity
+methodology). His Prop. 6 = failure-threshold structure; Theorem 2 =
+nondegeneracy ⟺ RH. Note C'_L ⇒ C_L; the repo's constrained results live
+inside this frame.
 
 Define λ'(L) := inf{Z(f) : f ∈ V'_L, ‖f‖ = 1} (∈ [−∞, ∞), finite by §1).
 Monotone: V'_L nested ⇒ λ' nonincreasing [PROVED, trivial].
