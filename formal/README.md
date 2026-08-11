@@ -27,7 +27,17 @@ What is possible, and is this directory's program:
    T1-GRADED.md; the caps; the unbounded-support limit) stated as `Prop`s with
    documentation, never as `sorry`s in committed proofs of record.
 
-Build: `elan` auto-selects the toolchain (v4.33.0-rc2); `lake exe cache get`
-fetches prebuilt Mathlib (rev 51e6992, the zeta-23-lean pin); `lake build`.
+Build (standalone): `elan` auto-selects the toolchain (v4.33.0-rc2);
+`lake exe cache get` fetches prebuilt Mathlib (rev 51e6992, the zeta-23-lean
+pin); `lake build`.
+
+Build (current dev arrangement on ai-vps, disk-constrained): the modules are
+symlinked into a local clone of anthropics/zeta-23-lean as an extra `lean_lib`
+(`RiemannFormal`, globs restricted to the Mathlib-only modules) so one Mathlib
+checkout+cache serves both this layer and the future `Criterion.lean` imports of
+`Zeta23.*`. Build with `cd <zeta-23-lean clone> && lake build RiemannFormal`.
+`Criterion.lean` stays out of the build globs until `lake build Zeta23`
+completes (hours).
+
 Files under active proof development may contain `sorry` and say so at the top;
 anything announced as *proven* in the repo's logs must build sorry-free.
