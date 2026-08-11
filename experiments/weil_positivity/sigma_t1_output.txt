@@ -1,0 +1,2 @@
+L=0.40000: FULL-FORM LP floor: indicators -0.3565  +sigma -0.1747   [not yet]
+L=0.45000: FULL-FORM LP floor: indicators -0.4560  +sigma -0.2072   [not yet]

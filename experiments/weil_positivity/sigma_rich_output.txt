@@ -1,0 +1,8 @@
+L=0.34657  bar=0.490129
+  indicator-only floor : 0.4812
+  + sigma dictionary   : 0.4886   [below by 0.0015]
+  m2 tightness: median 1.031, max 1.416
+L=0.36000  bar=0.490129
+  indicator-only floor : 0.4427
+  + sigma dictionary   : 0.4507   [below by 0.0394]
+  m2 tightness: median 1.037, max 1.437
