@@ -28,3 +28,10 @@
 12. Raw-Weil-frame determinant perturbation theory — KILLED at trace-ideal
     level: threshold updates are non-compact partial isometries there; use
     the screw frame (THRESHOLD.md §1 / COLLISION.md §4).
+13. Euler-twist from A_a's Green function — KILLED with equations (T2,
+    threshold-work/T2-green-phase.md): the resolvent phase is e^{4πia·e^z}
+    (log-symbol group velocity), not e^{2iaz}; fixed-p resummation gives the
+    UNTWISTED s=½ local factor log p/(√p−1); exact residual = the missing
+    character p^{ikz}. Any Euler reconstruction must act on characters e^{izx}
+    in the first-order/de Branges frame. Do not re-attempt via A_a/G_a
+    resolvent kernels.

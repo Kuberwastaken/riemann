@@ -36,8 +36,25 @@ RH
         │   │     CAVEAT: isolation shrinks like 1/n (twin primes) —
         │   │     accumulation must use the additive multi-threshold form]
         │   ├── leading update = end-to-end resolvent kernel [PROVED (T1),
-        │   │     corrected constant/power: (8/3)Λ(n)n^{−1/2}η³·ρ(z;a,−a);
-        │   │     n^{−s} phase emergence still conjectural — agent T2]
+        │   │     (8/3)Λ(n)n^{−1/2}η³·ρ(z;a,−a)]
+        │   ├── e^{2iaz} phase in Γ_a(z;a,−a)   [REFUTED (T2): symbol of the
+        │   │     singular part is log(|ζ|/2π) (RvM density, cross-checked vs
+        │   │     Suzuki Thm 1.4); only oscillation e^{4πia·e^z}, damped off ℝ;
+        │   │     the e^{2iaz}=λ^{−2iz·(1/2)} phase lives in the FIRST-ORDER
+        │   │     frame (deficiency elements of D_a; CCM's λ^{−iz}), never in
+        │   │     A_a's resolvent]
+        │   ├── p^k resummation through A_a-resolvent  [KILLED with equations
+        │   │     (T2): yields the p-local factor of −ζ′/ζ at s=½, REAL and
+        │   │     UNTWISTED (log p/(√p−1)); exact residual vs the Euler ansatz
+        │   │     = the missing character p^{ikz}; the z-twist provably enters
+        │   │     via characters e^{izx} (division by ĝ, ĝ(z)=z^{−2}ξ′/ξ(½−iz)),
+        │   │     not via Green profiles → DEAD-ENDS #13]
+        │   ├── amplitude/screening inequality  [PROVED-shape (T2): uniform
+        │   │     convergence needs |𝒜_n| ≤ C_K n^{−1/2}ω(ε_n), ∫ω<∞ — an
+        │   │     extra √n of screening the Born amplitude misses by exactly
+        │   │     √n; forced unconditionally by ‖R‖≤1/|ℑz| yet invisible at
+        │   │     every finite perturbative order — the non-perturbative core,
+        │   │     same arithmetic content as E(λ)/(CCM-b)]
         │   ├── p^k resummation → local factor             [OPEN — agent T2]
         │   └── infinite accumulation                      [OPEN; RED-TEAM
         │         EQUATION (THRESHOLD.md §3): post-entry growth is LINEAR in a
@@ -65,6 +82,12 @@ Suzuki [14]; CC geometric positivity; zero-density amplification (2/3-paper
 frontier: unconditional F(α) beyond bandwidth 1).
 ```
 
-FRONTIER NODE: relative det₂ update across one threshold (validity + exact
-first-order term), because it gates both the p^k resummation and the
-accumulation red-team, and its failure mode is itself informative.
+FRONTIER NODE (recomputed after T1+T2): **threshold evolution in the
+FIRST-ORDER frame** — the a-evolution of CCM's proved identity
+det_reg(D_log^{(λ,N)} − z) = −i λ^{−iz} ξ̂_λ(z) across prime-power thresholds:
+ground-state perturbation dξ_λ under Δ_{n,η} (quadratic-form update on the
+form domain) instead of resolvent traces on A_a. Both T1 (A_a has no
+determinant; D_log does) and T2 (the z-phase lives in the deficiency frame)
+independently force this relocation. Pending: T3 (whether det₂/flow absorbs
+the 4e^a divergence — its verdict applies to ANY frame), S1 (sector
+inequality, needed for the D_log construction itself).
