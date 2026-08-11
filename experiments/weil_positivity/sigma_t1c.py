@@ -13,7 +13,7 @@
 import numpy as np, mpmath as mp, sys
 from scipy.sparse.linalg import eigsh
 mp.mp.dps = 30
-from sharp_floor import Omega, build_operator
+from sharp_floor import Omega, build_operator, LOG2
 from sigma_lp import sigma_pair_vals, project_constraints
 from sigma_rich import rich_centers
 from sigma_t1 import omega_w, S2L2
@@ -44,6 +44,20 @@ def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=14,
             sig = sigma_pair_vals(r, c, a)
             lam = lam_max_profile(sig, r, u, w, v1, v2)
             rows.append(sig); caps.append(lam)
+    # stage-9: COSINE-MODULATED caps — the prime's own oscillation as a basis
+    # element (dual_read: the minorant's forced detachment sits on the
+    # inter-valley ridges, i.e. exactly the cos(r log 2) beat; these sigma are
+    # >= 0, even, and their operators are windowed prime-shift bounds — the
+    # mu-invariant objects of T1-ARCHITECTURE, entering the LP as rows).
+    for c in (7.0, 8.0, 9.0, 10.0, 12.0, 17.0, 18.0, 19.0):
+        for sgn in (1.0, -1.0):
+            sig = sigma_pair_vals(r, c, 3.0) * (1.0 + sgn * np.cos(r * LOG2))
+            lam = lam_max_profile(sig, r, u, w, v1, v2)
+            rows.append(sig); caps.append(lam)
+    sig = np.clip(1.0 - r / 21.0, 0.0, None) * (1.0 + np.cos(r * LOG2))
+    rows.append(sig); caps.append(lam_max_profile(sig, r, u, w, v1, v2))
+    sig = np.clip(1.0 - r / 21.0, 0.0, None) * (1.0 - np.cos(r * LOG2))
+    rows.append(sig); caps.append(lam_max_profile(sig, r, u, w, v1, v2))
     val, x = solve_lp(r, cost, rows, caps, tail_val)
     if verbose: print(f"L={L}: round 0 LP = {val:+.4f}", flush=True)
     Ppole = np.eye(nI)
