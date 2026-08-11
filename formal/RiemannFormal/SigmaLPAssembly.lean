@@ -31,6 +31,26 @@ theorem sigma_lp_assembly
     (hcap : ∀ j, ∫ r, σ j r ∂ν ≤ Λ j)
     (hΩ : Integrable Ω ν) (hσ : ∀ j, Integrable (σ j) ν) :
     c - ∑ j, y j * Λ j ≤ ∫ r, Ω r ∂ν := by
-  sorry
+  have hyσ : ∀ j : Fin m, Integrable (fun r => y j * σ j r) ν :=
+    fun j => (hσ j).const_mul (y j)
+  have hsum : Integrable (fun r => ∑ j, y j * σ j r) ν :=
+    integrable_finsetSum _ fun j _ => hyσ j
+  have hlhs : Integrable (fun r => c - ∑ j, y j * σ j r) ν :=
+    (integrable_const c).sub hsum
+  -- ∫ (c − Σ yσ) dν ≤ ∫ Ω dν by the pointwise bound
+  have hmono : ∫ r, (c - ∑ j, y j * σ j r) ∂ν ≤ ∫ r, Ω r ∂ν :=
+    integral_mono hlhs hΩ hpt
+  -- ∫ (c − Σ yσ) dν = c − Σ y ∫σ (probability measure + linearity)
+  have hsplit : ∫ r, (c - ∑ j, y j * σ j r) ∂ν = c - ∑ j, y j * ∫ r, σ j r ∂ν := by
+    rw [integral_sub (integrable_const c) hsum]
+    have hc : ∫ _ : ℝ, c ∂ν = c := by simp
+    rw [hc]
+    congr 1
+    rw [integral_finsetSum _ fun j _ => hyσ j]
+    exact Finset.sum_congr rfl fun j _ => integral_const_mul (y j) (σ j)
+  -- caps: Σ y ∫σ ≤ Σ y Λ since y ≥ 0
+  have hcaps : ∑ j, y j * ∫ r, σ j r ∂ν ≤ ∑ j, y j * Λ j :=
+    Finset.sum_le_sum fun j _ => mul_le_mul_of_nonneg_left (hcap j) (hy j)
+  linarith
 
 end RiemannFormal
