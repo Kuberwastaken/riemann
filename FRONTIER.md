@@ -174,3 +174,20 @@ cubically-small odd pole coupling (numerically: min v₊ ∈ [3.4, 1.6e4] on
 a ∈ [0.30, 0.60]). HONEST WALL (C1-T3): pinned-frame global existence =
 localized Weil positivity; limit identification = Cor 1.6 — the trade is
 E(λ)→0 for two sign inequalities + one monotone limit.
+
+P2 ADJUDICATED — **ABANDONMENT CONDITION FIRED; CHALLENGER AUTO-PROMOTED.**
+Closed form: D(x,y) = 2Im[r_p 𝒫_x(p)𝒫ˢ_y(p)] + (x↔y), supported on the SHADOW
+ZEROS of ξ+ξ′ (E_ξ = A+iA′; naive quadruple block cancels identically, Thm D0,
+1e-13-validated). Sign: signature (2,2) = exact Bombieri-inertia mirror; (1,1)
+per parity; no one-sidedness anywhere; D ⪰ 0 ⟺ D ≡ 0 ⟺ RH (⟺ E_ξ ∈
+Hermite–Biehler with explicit defect kernel). Rate dictionary e^{(2Θ−1)a}
+rederived (third frame). Static sector → HARD-WALL-COORDINATES → DEAD-ENDS #16.
+NEW PRIMARY (auto): the Lee–Yang sign-inequality program — prove
+(C1-T2) v₊ = A_a^{−1}e^x > 0 (positivity-improving semigroup + small odd pole
+coupling), then (C1-T1) ∂_a arg E_a(z) ≥ 0 (chain nesting + FKG covariance);
+limit identification (C1-T3/Cor 1.6) remains the wall behind them.
+NEW NODE (salvage): shadow-zero location ℑp as real-analytic RH order
+parameter — feeds the promoted route's monotone-flow picture.
+METRICS: chain relocated again, not shortened — counter 2/3. One more
+no-shortening cycle forces the next rerank; the promoted route's advantage is
+that its nodes are SIGN INEQUALITIES, not estimates.

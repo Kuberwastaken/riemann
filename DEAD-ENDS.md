@@ -50,3 +50,8 @@
     coupling (s* = 0.99941 at a = 0.62) — the √n-screening arithmetic in the
     (a,x) coordinate. Use the crossing as a degeneracy probe (C1/C2), not as
     a continuation path.
+16. Suzuki §7.7 static identity as an attack surface — HARD-WALL-COORDINATES,
+    proved (P2): the defect against the Gram form has Bombieri signature (2,2)
+    with no exploitable one-sidedness under parity/support/L²₀; D ⪰ 0 is
+    identically RH. The identity remains the sharpest STATEMENT of the wall;
+    it is not a door. Salvage: shadow zeros of ξ+ξ′ as order parameter.
