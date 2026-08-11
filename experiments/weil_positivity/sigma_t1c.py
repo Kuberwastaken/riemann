@@ -49,6 +49,16 @@ def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=14,
     Ppole = np.eye(nI)
     for v in (v1, v2):
         Ppole -= np.outer(v, v)
+    # stage-7a: ORACLE caps — sigma shaped as the negative part of (Omega_W − c),
+    # i.e. sigma_c = max(c − Omega_W, 0): compactly supported, even, pointwise-defined;
+    # a single row already gives floor ≥ c − Λ_c, and inside the LP it carries the
+    # exact SHAPE of the cost's negative set (the two valleys + dips jointly).
+    for c_or in (0.05, 0.15, 0.30, 0.60):
+        sig = np.maximum(c_or - cost, 0.0)
+        lam = lam_max_profile(sig, r, u, w, v1, v2)
+        rows.append(sig); caps.append(lam)
+    val, x = solve_lp(r, cost, rows, caps, tail_val)
+    if verbose: print(f"L={L}: round 0+oracle LP = {val:+.4f}", flush=True)
     stalls = 0
     for rd in range(1, rounds + 1):
         cl = sorted(clusters_of(x, r), key=lambda t: -t[2])
@@ -82,6 +92,20 @@ def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=14,
                 A = K_band - th * (Ppole - K_wide)      # P_V(K_band − θ(1−σ_wide))P_V
                 lam = float(np.max(eigsh(A, k=6, which='LA', return_eigenvectors=False)))
                 rows.append(sig_band - th * (1.0 - sig_wide))
+                caps.append(lam); added += 1
+        # stage-7b: JOINT two-slot signed tradeoffs — concentrate on slots A∪B while
+        # penalizing everything outside both (the bimodal phantom's exact shape)
+        if len(cl) >= 2:
+            (lo1, hi1, _), (lo2, hi2, _) = cl[0], cl[1]
+            sig_ab = np.maximum(tent(r, lo1, hi1), tent(r, lo2, hi2))
+            K_ab = profile_operator(sig_ab, r, u, w, v1, v2)
+            wide_ab = np.maximum(tent(r, max(lo1 - 2, 0), min(hi1 + 2, Rmax)),
+                                 tent(r, max(lo2 - 2, 0), min(hi2 + 2, Rmax)))
+            K_wab = profile_operator(wide_ab, r, u, w, v1, v2)
+            for th in thetas:
+                A = K_ab - th * (Ppole - K_wab)
+                lam = float(np.max(eigsh(A, k=6, which='LA', return_eigenvectors=False)))
+                rows.append(sig_ab - th * (1.0 - wide_ab))
                 caps.append(lam); added += 1
         val2, x = solve_lp(r, cost, rows, caps, tail_val)
         if verbose:
