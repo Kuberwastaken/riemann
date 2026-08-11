@@ -159,3 +159,52 @@ certify *strict positivity* (T1), which is of RH-equivalent species. Consequence
   the Claude 2/3 paper (the "microphones / see-saw / bowls-and-saddles" language).
   Accurate as far as checked; no independent mathematical content; not archived as a
   paper.
+
+---
+
+## 2026-08-11 — Session products (same day, the "real stab" session)
+
+Executed on ai-vps (8 vCPU x86; the lab's move off the Raspberry Pi). Full
+narrative in `logs/LOG.md`; one commit per artifact throughout.
+
+1. **Lead 2 EXECUTED (Track A):** all three hypotheses of CCM 2025 Theorem 1.1
+   (sign, simplicity, evenness of ε_N) machine-certified in five windows
+   (L = 0.45…0.62), both section conventions, with a full-space corollary
+   carrying no N→∞ caveat (μ_λ ≤ 6.2646·10⁻¹⁰ for all λ ≥ 1.8589). Corrected
+   parity structure of the pole constraints (one per sector; pole term
+   negative-definite in the odd sector). `experiments/weil_positivity/EPSILON-N.md`.
+2. **Lead 5 REFUTED with structure found (Track B):** k ≥ 2 prime-power orbits
+   are load-bearing, not drag — primes-only positivity dies at L* = 0.705 ±
+   0.005 (≈ the n=4 threshold + 0.012) while the full sum rides the zero shelf;
+   seam law (every truncation fails within ΔL ≈ 0.01 of its first missing
+   orbit's threshold); 4-orbit/2-orbit resonance (dropping n=4 costs Λ(2)/√2,
+   not Λ(4)/2). The ψ−θ reformulation is dead. `experiments/weil_positivity/ORBIT-DRAG.md`.
+3. **Lead 1 OPENED (Track C):** graded-mode scaffold with Lemma H proven
+   (high-mode band mass ≤ (8/π²)log((N−1)/(N−1−2LR/π))) and the single
+   remaining analytic lemma (shell-coupling decay) isolated; full-space T1
+   conditionally reduced to that lemma + one certified low-block computation.
+   `experiments/weil_positivity/T1-GRADED.md`.
+4. **Track D — the session's centerpiece** (`experiments/weil_positivity/SHARP-FLOOR.md`):
+   - The rearrangement route to T1 is conclusively closed: even with EXACT
+     per-band spectral caps its ceiling is 0.4753 < 0.4901 at L₀ (the loss is
+     Lemma R itself, not the moment order — k=6 moments reach within 1.8% of
+     the exact caps).
+   - **The Ω_W identity**: the full one-prime (indeed any-window) constrained
+     Weil form is a single diagonal frequency functional, Ω_W = Ω −
+     √2 log2·cos(r log 2) — the prime is a cosine multiplier, and the monotone-
+     rearrangement detour (hence the 0.4901 norm bar) was never necessary.
+   - **The σ-LP certificate format**: caps ∫σ dν ≤ λ_max(P_V σ(D) P_V) for a
+     dictionary of (signed) multipliers, with self-aimed union caps and signed
+     band-vs-tail tradeoff caps encoding the uncertainty principle as LP rows.
+   - **Pilot result: the LP crosses zero at L = 0.40 (+0.0046)** — pilot-level
+     FULL-SPACE Weil positivity with the prime 2 active at window ratio 2.226,
+     where all prior rigorous statements (this repo's certified curve) covered
+     14-dimensional families. Certification design (frequency-side Nyström +
+     interval LP columns) is written and is standard technology; the margin is
+     the open risk. If it survives, this is the first full-space theorem of the
+     exact RH-equivalent species with arithmetic content — T1(δ) for δ ≈ 0.23.
+5. Norm-route σ-LP at L₀ reached 0.4886 (0.0015 below the bar) — recorded as
+   the sharpest measured value of that now-superseded route.
+
+*Everything above is labeled honest-first: pilot numerics are pilot numerics,
+certified results say certified, and none of it is RH.*
