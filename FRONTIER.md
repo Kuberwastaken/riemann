@@ -20,16 +20,24 @@ RH
         │   (CCM Cor 3.8 almost-positivity ⟺ RH — COLLISION.md §3)
         ├── prime-threshold determinant evolution  [CURRENT PRIMARY]
         │   ├── single-threshold Schatten classification  [PROVED-REPO,
-        │   │     THRESHOLD.md §1: Δ_{n,η} self-adjoint, HS with EXACT norm
-        │   │     √(8/3)·Λ(n)n^{−1/2}η²; traceless (kernel vanishes on diag);
-        │   │     trace-class status OPEN-minor]
+        │   │     COMPLETE (T1): self-adjoint, HS norm √(8/3)Λ(n)n^{−1/2}η²
+        │   │     exact, TRACE CLASS with ‖Δ‖₁ = 8κ₁Λ(n)n^{−1/2}η² exact,
+        │   │     traceless, exact unitary model with spectrum
+        │   │     ±4Λ(n)n^{−1/2}η²·s_j(Ĉ₁)]
         │   ├── two-part evolution structure  [PROVED-REPO, structural:
         │   │     d(det)/da = Hadamard boundary-variation flow (continuous)
         │   │     + threshold kernel entries (discrete); THRESHOLD.md §2]
-        │   ├── relative det₂ update across one threshold  [OPEN — agent T1]
-        │   ├── leading update = end-to-end Green kernel   [DERIVED-HEURISTIC:
-        │   │     Tr(R_aΔ) ≈ 4Λ(n)n^{−1/2}η²·G_a(z; a, −a); n^{−s} phase
-        │   │     emergence conjectural — agent T2]
+        │   ├── relative det₂ update across one threshold  [PROVED-REPO
+        │   │     under isolation 2η < gap-to-next-threshold (T1-det2.md):
+        │   │     log-det update = Hadamard flow (diagonal-corner ρ) +
+        │   │     (8/3)Λ(n)n^{−1/2}η³·ρ(z;a,−a) + exact k=2 term
+        │   │     −(4/3)c²η⁴z^{−2} + controlled k≥3; a↦log D_a is C¹ across
+        │   │     thresholds — the prime enters at exact order η³.
+        │   │     CAVEAT: isolation shrinks like 1/n (twin primes) —
+        │   │     accumulation must use the additive multi-threshold form]
+        │   ├── leading update = end-to-end resolvent kernel [PROVED (T1),
+        │   │     corrected constant/power: (8/3)Λ(n)n^{−1/2}η³·ρ(z;a,−a);
+        │   │     n^{−s} phase emergence still conjectural — agent T2]
         │   ├── p^k resummation → local factor             [OPEN — agent T2]
         │   └── infinite accumulation                      [OPEN; RED-TEAM
         │         EQUATION (THRESHOLD.md §3): post-entry growth is LINEAR in a
@@ -45,6 +53,12 @@ CCM obstacle (a): ε_N simple + even eigenvector
 ├── five windows L=0.45..0.62      [CERTIFIED-REPO — EPSILON-N.md; ready to
 │                                    communicate to CCM (human action: Kuber)]
 └── all (λ,N) — sector inequality ε_even < ε_odd   [OPEN — agent S1, parallel]
+
+NEW NO-GO (T1, proved): A_a admits NO determinant of any standard species —
+its eigenvalues grow like C_a·log j, so the resolvent lies in no Schatten
+class and the spectral zeta has empty convergence domain; determinant theory
+exists only in the screw/G frame (compact, trace class) or on CCM's D_log
+(linear spectral growth). DEAD-ENDS #12 upgraded from observation to theorem.
 
 ORTHOGONAL RESERVE (not currently primary): de Branges/canonical systems via
 Suzuki [14]; CC geometric positivity; zero-density amplification (2/3-paper

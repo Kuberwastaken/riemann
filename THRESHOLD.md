@@ -57,7 +57,11 @@ agent T1]: for the relative perturbation determinant with resolvent R_a(z),
     Tr(R_a(z)Δ_{n,η}) = Λ(n)n^{−1/2}·∬_corners R_a(z;x,y)(|x−y|−log n)dxdy
                       ≈ 4Λ(n)n^{−1/2}·η²·G_a(z; a, −a)·(1 + O(η)),
 
-the END-TO-END Green kernel between the two boundary points: *the prime p^k
+the END-TO-END Green kernel between the two boundary points
+    [CORRECTED by T1 (threshold-work/T1-det2.md), PI-verified: the trace pairs
+    against the corner MASS (8/3)η³, not the HS scale — the exact removed
+    linear term is (8/3)Λ(n)n^{−1/2}η³·ρ(z; a, −a), order η³, constant 8/3;
+    the transport mechanism survives, the η² claim was wrong]: *the prime p^k
 measures the operator's boundary-to-boundary transport at the exact scale
 where the window first spans log p^k.* If G_a(z; a, −a) carries the free
 phase e^{2iaz} (to be established/refuted by agent T2), then at 2a = log n
