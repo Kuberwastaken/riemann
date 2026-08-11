@@ -113,11 +113,16 @@ cost ~ log r; the phantom parked them in the 18-dip at +0.077).
 
 i.e. **pilot-level full-space T1 at window ratio e^{0.8} = 2.226** — beyond the
 Connes–Consani ratio-2 window with the prime 2 active, on the whole constrained
-space (contrast: Certified Results 1–4 were 14-dimensional families). Margin
-+0.0046 against cap-discretization ~10⁻³ (n = 1200 trapezoid): a margin-chasing
-run (target +0.03) and the L = 0.42, 0.45 probes are in
-`sigma_t1c3_output.txt`. Honest status: float pilot; the theorem requires the
-certified pipeline of §6 with a total error budget below the final margin.
+space (contrast: Certified Results 1–4 were 14-dimensional families). The
+margin-chasing run (`sigma_t1c3_output.txt`) settles it: **+0.0349 at L = 0.40
+after five rounds** — ~7× the cap-discretization scale (n = 1200 trapezoid),
+comfortable for certification. The same families stall at −0.0358 (L = 0.42)
+and ≈ −0.071 (L = 0.45): the current relaxation's reach ends between 0.40 and
+0.42, while true positivity extends past 0.545 — the next levels (pairwise
+signed tradeoffs among slots, Lasserre-2 moment blocks, oracle σ from the
+numerical optimum) are the documented frontier. Honest status: float pilot; the
+theorem requires the certified pipeline of §6 with a total error budget below
++0.0349.
 
 ## 6. Certification design (if/where the LP clears 0)
 
