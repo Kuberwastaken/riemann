@@ -1,0 +1,16 @@
+bar 0.49012907173427356
+floor indicator-only: 0.4678
+floor with sigma    : 0.4837
+median m2 tightness : 1.027
+  sigma(c=0.0,a=1.5): Lam=0.0000 sqrt(m2)/Lam=1.000
+  sigma(c=0.0,a=3.0): Lam=0.0006 sqrt(m2)/Lam=1.000
+  sigma(c=1.0,a=1.5): Lam=0.0004 sqrt(m2)/Lam=1.000
+  sigma(c=1.0,a=3.0): Lam=0.0031 sqrt(m2)/Lam=1.000
+  sigma(c=2.0,a=1.5): Lam=0.0026 sqrt(m2)/Lam=1.000
+  sigma(c=2.0,a=3.0): Lam=0.0101 sqrt(m2)/Lam=1.001
+  sigma(c=3.0,a=1.5): Lam=0.0091 sqrt(m2)/Lam=1.001
+  sigma(c=3.0,a=3.0): Lam=0.0261 sqrt(m2)/Lam=1.002
+  sigma(c=4.0,a=1.5): Lam=0.0228 sqrt(m2)/Lam=1.002
+  sigma(c=4.0,a=3.0): Lam=0.0549 sqrt(m2)/Lam=1.005
+  sigma(c=5.0,a=1.5): Lam=0.0450 sqrt(m2)/Lam=1.006
+  sigma(c=5.0,a=3.0): Lam=0.0978 sqrt(m2)/Lam=1.010
