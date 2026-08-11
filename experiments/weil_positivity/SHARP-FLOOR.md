@@ -117,12 +117,22 @@ space (contrast: Certified Results 1–4 were 14-dimensional families). The
 margin-chasing run (`sigma_t1c3_output.txt`) settles it: **+0.0349 at L = 0.40
 after five rounds** — ~7× the cap-discretization scale (n = 1200 trapezoid),
 comfortable for certification. The same families stall at −0.0358 (L = 0.42)
-and ≈ −0.071 (L = 0.45): the current relaxation's reach ends between 0.40 and
-0.42, while true positivity extends past 0.545 — the next levels (pairwise
-signed tradeoffs among slots, Lasserre-2 moment blocks, oracle σ from the
-numerical optimum) are the documented frontier. Honest status: float pilot; the
-theorem requires the certified pipeline of §6 with a total error budget below
-+0.0349.
+and ≈ −0.071 (L = 0.45): that hierarchy level ended between 0.40 and 0.42.
+**Stage 7** (oracle-σ shaped as (c − Ω_W)₊ — the exact geometry of the cost's
+negative set as a single row — plus joint two-slot signed tradeoffs;
+`sigma_t1d_output.txt`) then moved the frontier: **L = 0.42 crossed, +0.0320**
+(window ratio 2.316), the oracle caps alone recovering −0.1901 → −0.0868 before
+any cutting rounds. L = 0.45 improved to −0.0562 but stalled flat across four
+rounds with stable geometry (0.52 mass at the second-valley cap ∪ 0.13 deep
+valley ∪ 0.13 in the 17/19-dips) against true headroom +0.0807: **this
+hierarchy level's crossover is measured to lie in (0.42, 0.45)** — the first
+quantitative fix on where per-band-plus-tradeoff geometry stops sufficing and
+finer joint information (Lasserre-2 moment blocks; genuinely multi-band phase
+coupling, i.e. the collective prime interference) must enter. True positivity
+extends past 0.545, so the remaining window is the next level's territory.
+Honest status: float pilot; the theorem requires the certified pipeline of §6
+with a total error budget below the final margin (+0.0349 at L = 0.40, +0.0320
+at L = 0.42).
 
 ## 6. Certification design (if/where the LP clears 0)
 
