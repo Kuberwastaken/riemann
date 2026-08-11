@@ -157,3 +157,20 @@ literature; feeds C1); N₀-quantifier collapse — continuum simple+even ⇒ al
 Fourier truncations N ≥ N₀(a,δ): the five certified windows lift to the whole
 N-diagonal; effective N₀(a,δ) = concrete non-RH-complete follow-up (replaces
 T3's order-of-limits obstacle).
+
+C1 ADJUDICATED — CHALLENGER MECHANISM OPENS (empirical, builder validated
+against certified enclosures): (LY-a) monotone-from-above interlacing zero
+flow in a CONFIRMED (0/261 violations through both thresholds), converging
+onto the Riemann zeros with (z₁−γ₁) ≈ (33–44)·λ_a — the SAME ~40× constant as
+S1's margin law: cross-frame invariant, now [CONJECTURE] in its own right.
+(LY-p) coherent one-signed prime response at θ∈{0,π} (antilinear E-rotation).
+REFUTATION BOUNDARY: only the pinned frame (λ=0, θ∈{0,π}) works — generic θ
+mixed, λ≠0 counterexample at (0.56, π, −0.084); A_a's higher eigenvalues not
+monotone; Suzuki's expected λ-independence of W-zeros is FALSE at fixed θ
+[falsifiable literature correction]. NEW OPEN NODES (sign-inequality-shaped,
+not estimates): (C1-T1) ∂_a arg E_a(z) ≥ 0 via H(A_a) ↪ H(A_{a′}) chain
+nesting; (C1-T2) v₊ = A_a^{−1}e^x > 0 via positivity-improving e^{−tH♮} +
+cubically-small odd pole coupling (numerically: min v₊ ∈ [3.4, 1.6e4] on
+a ∈ [0.30, 0.60]). HONEST WALL (C1-T3): pinned-frame global existence =
+localized Weil positivity; limit identification = Cor 1.6 — the trade is
+E(λ)→0 for two sign inequalities + one monotone limit.
