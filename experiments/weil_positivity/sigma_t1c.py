@@ -116,9 +116,9 @@ def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=14,
         if stalls >= 3 or val >= 0.03: break     # chase certification margin, not just the sign
     print(f"L={L}: FINAL stage-6 LP floor {val:+.4f}  "
           f"[{'*** T1 CERTIFIED (pilot) ***' if val > 0 else 'still short'}]", flush=True)
-    return val
+    return val, dict(rows=rows, caps=caps, r=r, cost=cost, tail=tail_val, x=x)
 
 if __name__ == '__main__':
     Ls = [float(x) for x in sys.argv[1:]] or [0.40]
     for L in Ls:
-        run(L)
+        run(L)[0] if True else None
