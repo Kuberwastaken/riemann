@@ -143,3 +143,17 @@ Groskin certification budget overlaps the five-window niche (outreach urgency
 UP). Cycle-2 fleet: P1 (Gram explicit formula + convergence), P2 (off-line
 pair + sign), C1 (Lee–Yang toy), C2 (FKG vs screening), R1 (CvS sector), L1
 (route-everyone-missed); hostile referee follows on their artifacts.
+
+R1 ADJUDICATED: (correction) the θ_x prime-cutoff family is OUR instantiation
+licensed by CvS's general theorem, not in their paper. PROVED: S1 Thm A
+transplants to all (a,x) (pole-free simple+even; gap ≥ ν(2a)‖v_o‖₁²; λ^♮
+monotone in x); the 𝔠-criterion transplants verbatim. INVERSION (float,
+S1-anchored): with the pole, every Euler-deficient truncation crosses to an
+ODD ground state (a*₁=0.3737 arch+pole; a*₂=0.5606 +{2}; a*₃=0.7014 +{2,3});
+evenness restored only at full Euler content — simple+even is a matched-filter
+property of window vs Euler content on the λ² diagonal. ROUTE KILL →
+DEAD-ENDS #15. YIELDS: unconditional Lee–Yang family indexed by (a,x) (new to
+literature; feeds C1); N₀-quantifier collapse — continuum simple+even ⇒ all
+Fourier truncations N ≥ N₀(a,δ): the five certified windows lift to the whole
+N-diagonal; effective N₀(a,δ) = concrete non-RH-complete follow-up (replaces
+T3's order-of-limits obstacle).

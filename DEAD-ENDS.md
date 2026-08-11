@@ -43,3 +43,10 @@
     ONLY repair is the rank-3 pole compression; post-repair bookkeeping is
     RH-complete exactly (rate dictionary e^{(2Θ−1)a}) — no sub-RH floor.
     Do not re-attempt uncompressed accumulation in any frame.
+15. Euler-continuation homotopy (in cutoff x or coupling s) as a proof of
+    obstacle (a) at fixed window — KILLED for a > 0.374 (R1): every
+    Euler-deficient truncation robustly crosses to odd ground state (gaps
+    ~0.2); evenness is restored only in the last sliver of the final prime's
+    coupling (s* = 0.99941 at a = 0.62) — the √n-screening arithmetic in the
+    (a,x) coordinate. Use the crossing as a degeneracy probe (C1/C2), not as
+    a continuation path.
