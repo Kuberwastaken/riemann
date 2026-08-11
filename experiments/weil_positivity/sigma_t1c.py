@@ -19,8 +19,8 @@ from sigma_rich import rich_centers
 from sigma_t1 import omega_w, S2L2
 from sigma_t1b import profile_operator, lam_max_profile, solve_lp, clusters_of, tent
 
-def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=8,
-        thetas=(0.25, 0.5, 1.0, 2.0, 4.0), verbose=True):
+def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=14,
+        thetas=(0.1, 0.2, 0.35, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0), verbose=True):
     u, w, v1, v2, K = build_operator(L, n)
     nI = len(u)
     r = np.arange(0.0, Rmax + 1e-9, dr)
@@ -49,6 +49,7 @@ def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=8,
     Ppole = np.eye(nI)
     for v in (v1, v2):
         Ppole -= np.outer(v, v)
+    stalls = 0
     for rd in range(1, rounds + 1):
         cl = sorted(clusters_of(x, r), key=lambda t: -t[2])
         if not cl: break
@@ -61,26 +62,34 @@ def run(L, n=1200, Rmax=22.0, dR_caps=0.25, dr=0.05, rounds=8,
             for (lo, hi, m) in un: sig = np.maximum(sig, tent(r, lo, hi))
             lam = lam_max_profile(sig, r, u, w, v1, v2)
             rows.append(sig); caps.append(lam); added += 1
-        # SIGNED band-vs-tail tradeoff caps for each major slot
+        # SIGNED tradeoff caps for each major slot: (a) right-tail penalized,
+        # (b) ALL out-of-widened-band mass penalized (both-side forcing)
         for (lo, hi, m) in cl[:4]:
             if m < 0.05: continue
-            cut = hi + 2.0
-            if cut >= Rmax - 1.0: continue
             sig_band = tent(r, lo, hi)
             K_band = profile_operator(sig_band, r, u, w, v1, v2)
-            B_cut = band_op(round(float(np.ceil(cut / dR_caps) * dR_caps), 6))
+            cut = hi + 2.0
+            if cut < Rmax - 1.0:
+                B_cut = band_op(round(float(np.ceil(cut / dR_caps) * dR_caps), 6))
+                for th in thetas:
+                    A = K_band - th * (Ppole - B_cut)   # P_V(K_band − θ·1_{r>cut})P_V
+                    lam = float(np.max(eigsh(A, k=6, which='LA', return_eigenvectors=False)))
+                    rows.append(sig_band - th * (r > cut).astype(float))
+                    caps.append(lam); added += 1
+            sig_wide = tent(r, max(lo - 2.0, 0.0), min(hi + 2.0, Rmax))
+            K_wide = profile_operator(sig_wide, r, u, w, v1, v2)
             for th in thetas:
-                A = K_band - th * (Ppole - B_cut)      # P_V(K_band − θ(I−B_cut))P_V
+                A = K_band - th * (Ppole - K_wide)      # P_V(K_band − θ(1−σ_wide))P_V
                 lam = float(np.max(eigsh(A, k=6, which='LA', return_eigenvectors=False)))
-                sig_row = sig_band - th * (r > cut).astype(float)
-                rows.append(sig_row); caps.append(lam); added += 1
+                rows.append(sig_band - th * (1.0 - sig_wide))
+                caps.append(lam); added += 1
         val2, x = solve_lp(r, cost, rows, caps, tail_val)
         if verbose:
             occ = ", ".join(f"[{lo:.1f},{hi:.1f}]:{m:.2f}" for lo, hi, m in cl[:5])
             print(f"L={L}: round {rd} LP = {val2:+.4f}  (+{added} caps; slots {occ})", flush=True)
-        if abs(val2 - val) < 1e-4: val = val2; break
+        stalls = stalls + 1 if abs(val2 - val) < 1e-4 else 0
         val = val2
-        if val >= 0: break
+        if stalls >= 3 or val >= 0.03: break     # chase certification margin, not just the sign
     print(f"L={L}: FINAL stage-6 LP floor {val:+.4f}  "
           f"[{'*** T1 CERTIFIED (pilot) ***' if val > 0 else 'still short'}]", flush=True)
     return val
