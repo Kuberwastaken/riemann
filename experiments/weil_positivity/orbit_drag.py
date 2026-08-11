@@ -227,8 +227,10 @@ def cmd_plot():
             if len(Ls) >= len(L_GRID):
                 break
 
+    # categorical slots 1-3 of the validated reference palette (dataviz skill):
+    # CVD-checked, fixed assignment full=blue, primes=orange, drag=aqua
     ink, grid_c = '#1a1a24', '#d9d9e0'
-    c_full, c_primes, c_drag = '#5b6ee1', '#c15b3f', '#3d8a63'
+    c_full, c_primes, c_drag = '#2a78d6', '#eb6834', '#1baf7a'
     fig, (ax1, ax2) = plt.subplots(
         2, 1, figsize=(7.2, 6.4), sharex=True,
         gridspec_kw={'height_ratios': [3, 2], 'hspace': 0.12})
