@@ -72,12 +72,22 @@ RH
         │         THRESHOLD §3's PNT-strength guess corrected to RH-strength.]
         └── direct kernel estimate (Suzuki §7.7 identity)  [OPEN, orthogonal]
 
-SIDE (enabling, non-RH-complete):
-CCM obstacle (a): ε_N simple + even eigenvector
-├── small a                        [PROVED-LITERATURE — Suzuki Thm 1.4]
-├── five windows L=0.45..0.62      [CERTIFIED-REPO — EPSILON-N.md; ready to
-│                                    communicate to CCM (human action: Kuber)]
-└── all (λ,N) — sector inequality ε_even < ε_odd   [OPEN — agent S1, parallel]
+SIDE — CCM obstacle (a), DECOMPOSED by S1 (threshold-work/S1-sector.md):
+├── pole-free part simple+even at EVERY a  [PROVED-REPO — S1 Thm A:
+│     Lévy–Khintchine (ν(t)=e^{|t|/2}/2sinh|t|>0, jump Dirichlet form) +
+│     ferromagnetic primes; parity gap ≥ ν(2a)‖v_o‖₁²; the primes can NEVER
+│     break simple+even — only the rank-two pole can]
+├── exact crossing criterion  [PROVED-REPO: ε_even<ε_odd ⟺ 𝔠(a) :=
+│     2⟨(H♮_o−ε_even)^{−1}w₋, w₋⟩ < 1; crossing ⟺ 𝔠=1; per-window
+│     Arb-certifiable far cheaper than sign certificates]
+├── theorem-with-range a ≤ 0.32  [DERIVED, mod ONE open archimedean lemma
+│     γ_arch ≥ 1.2; extendable to 0.42 by cheap certification]
+├── five windows L=0.45..0.62  [CERTIFIED-REPO — EPSILON-N.md; outreach to
+│     CCM = human action (Kuber)]
+└── ∀a version  [STATUS CORRECTED: RH-MARGINAL — margin law
+      1−𝔠(a) ≈ 40·ε_odd(a), and odd-Weil positivity ∀a ⟹ RH (Yoshida
+      Prop 1). Non-RH-complete at any FIXED a only. At a crossing, CCM
+      Thm 1.1 fails and Suzuki Thm 1.5 is the surviving frame.]
 
 NEW NO-GO (T1, proved): A_a admits NO determinant of any standard species —
 its eigenvalues grow like C_a·log j, so the resolvent lies in no Schatten
@@ -103,3 +113,13 @@ the flow's stability condition; (iii) N ≥ λ² finite-section diagonal (T3's
 order-of-limits: obstacle (a) needed on all (λ, N ≥ λ²) — deprioritizes
 window-extension permanently). Pending: S1 (sector inequality; its scope now
 set by (iii)).
+
+---
+CYCLE 1 CLOSED (2026-08-11): T1 one-threshold formula + A_a-no-determinant;
+T2 phase refutation + untwisted local factors + √n screening; T3 double kill
+of accumulation + rank-3 repair + RH-rate dictionary; S1 pole-free simple-even
+theorem + exact crossing criterion + RH-marginality of ∀a obstacle (a).
+NEXT SESSION: execute SOLVER §13 GLOBAL RESET first (rerank without sunk
+cost; the recomputed primary is the rank-3-compressed first-order flow, but
+the reset must weigh it against the orthogonal reserve with fresh eyes),
+then open cycle 2 on the reranked frontier node.
