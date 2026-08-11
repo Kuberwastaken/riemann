@@ -56,12 +56,20 @@ RH
         │   │     every finite perturbative order — the non-perturbative core,
         │   │     same arithmetic content as E(λ)/(CCM-b)]
         │   ├── p^k resummation → local factor             [OPEN — agent T2]
-        │   └── infinite accumulation                      [OPEN; RED-TEAM
-        │         EQUATION (THRESHOLD.md §3): post-entry growth is LINEAR in a
-        │         (η² only at entry) ⇒ bare accumulation diverges like
-        │         Σ Λ(n)n^{−1/2}(2a−log n)₊ ~ 4e^a; convergence REQUIRES the
-        │         PNT-level pole-vs-prime cancellation inside the flow —
-        │         agent T3 red-teams whether det₂ realizes it]
+        │   └── infinite accumulation                      [REFUTED (T3,
+        │         threshold-work/T3-redteam.md): KILL A — entry det₂ product
+        │         converges absolutely (total entry mass 0.17057) and carries
+        │         O(a·e^{−a}) of the prime content: entries CANNOT carry Ξ;
+        │         KILL B — totals diverge at every Schatten order,
+        │         Tr(S^{2m}) ≥ (c·e^a/a³)^{2m} unconditionally; det₂'s removed
+        │         linear term IS the arithmetic-bearing term. → DEAD-ENDS #14.
+        │         CONSTRUCTIVE: divergence is a rank-3 defect (pole directions
+        │         e^{±x/2} + constants = the s(s−1) factor); Schur compression
+        │         tames e^a → O(a²log a); POST-REPAIR DICTIONARY [PROVED,
+        │         classical]: E(t) = O(t) under RH, Ω(e^{(Θ−½−ε)t}) if RH
+        │         fails ⇒ subexponential compressed bookkeeping ⟺ RH, rate
+        │         e^{(2Θ−1)a}; toy check 0.496 vs 0.5. NO SUB-RH FLOOR —
+        │         THRESHOLD §3's PNT-strength guess corrected to RH-strength.]
         └── direct kernel estimate (Suzuki §7.7 identity)  [OPEN, orthogonal]
 
 SIDE (enabling, non-RH-complete):
@@ -82,12 +90,16 @@ Suzuki [14]; CC geometric positivity; zero-density amplification (2/3-paper
 frontier: unconditional F(α) beyond bandwidth 1).
 ```
 
-FRONTIER NODE (recomputed after T1+T2): **threshold evolution in the
-FIRST-ORDER frame** — the a-evolution of CCM's proved identity
-det_reg(D_log^{(λ,N)} − z) = −i λ^{−iz} ξ̂_λ(z) across prime-power thresholds:
-ground-state perturbation dξ_λ under Δ_{n,η} (quadratic-form update on the
-form domain) instead of resolvent traces on A_a. Both T1 (A_a has no
-determinant; D_log does) and T2 (the z-phase lives in the deficiency frame)
-independently force this relocation. Pending: T3 (whether det₂/flow absorbs
-the 4e^a divergence — its verdict applies to ANY frame), S1 (sector
-inequality, needed for the D_log construction itself).
+FRONTIER NODE (recomputed after T1+T2+T3 — cycle-1 synthesis): the
+**rank-3-compressed first-order determinant flow**: run the a-evolution on the
+first-order frame (T1: only frame with a determinant; T2: only frame with the
+z-phase) AFTER Schur-compressing the three defect directions {e^{x/2},
+e^{−x/2}, 1} (T3: the exact repair — CCM's L²₀ handles one of three; complete
+it). Status: EQUIVALENT-TO-RH with a PROVED rate dictionary (subexponential
+bookkeeping ⟺ RH, e^{(2Θ−1)a}); per SOLVER §8, next decomposition: (i) derive
+the compressed flow's exact evolution equation (Hadamard part now carries all
+arithmetic — T3 KILL A); (ii) the non-perturbative √n screening (T2's Q3) as
+the flow's stability condition; (iii) N ≥ λ² finite-section diagonal (T3's
+order-of-limits: obstacle (a) needed on all (λ, N ≥ λ²) — deprioritizes
+window-extension permanently). Pending: S1 (sector inequality; its scope now
+set by (iii)).

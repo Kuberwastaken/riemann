@@ -35,3 +35,11 @@
     character p^{ikz}. Any Euler reconstruction must act on characters e^{izx}
     in the first-order/de Branges frame. Do not re-attempt via A_a/G_a
     resolvent kernels.
+14. Threshold det₂ ENTRY accumulation as the carrier of Ξ — REFUTED (T3):
+    entries converge absolutely to a bounded zero-free tail (mass 0.17 total,
+    O(a e^{−a}) of prime content); the arithmetic sits in the Hadamard flow;
+    totals diverge at every Schatten order unconditionally (no det_p repair);
+    det₂'s removed linear term is exactly the arithmetic-bearing term. The
+    ONLY repair is the rank-3 pole compression; post-repair bookkeeping is
+    RH-complete exactly (rate dictionary e^{(2Θ−1)a}) — no sub-RH floor.
+    Do not re-attempt uncompressed accumulation in any frame.
