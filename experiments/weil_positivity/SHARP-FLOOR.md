@@ -96,7 +96,28 @@ of per-slot caps. `sigma_t1b.py` runs a self-aiming cutting-plane loop: solve,
 cluster the optimal measure, add nested-union and pairwise-union tent caps for
 the occupied slots, repeat.
 
-**Stage-5 verdict: [TO FILL FROM sigma_t1b_output.txt]**
+Stage-5 (unions only): −0.0775 (L=0.40), −0.1199 (L=0.45) — half the phantom
+gone, plateau at the single-slot cap of the 9-valley paired with cheap-dip
+parking. Stage-6 adds SIGNED tradeoff rows σ = tent(band) − θ·1_{out-of-band}
+(both right-tail and out-of-widened-band families, θ-ladder 0.1…4): the cap
+λ_max(P_V[K_band − θ(I − B_out)]P_V) is the uncertainty-limited frontier
+between in-band concentration and out-of-band leakage — precisely the physics
+the phantom violated (a real band-concentrated f carries heavy FAR tails at
+cost ~ log r; the phantom parked them in the 18-dip at +0.077).
+
+**Stage-6 verdict (L = 0.40, four cutting-plane rounds):**
+
+    round 0  −0.1747   (per-slot caps)
+    round 2  −0.0227   (+ unions + tradeoffs)
+    round 4  **+0.0046 — the LP certifies W ≥ 0 on the full constrained space**
+
+i.e. **pilot-level full-space T1 at window ratio e^{0.8} = 2.226** — beyond the
+Connes–Consani ratio-2 window with the prime 2 active, on the whole constrained
+space (contrast: Certified Results 1–4 were 14-dimensional families). Margin
++0.0046 against cap-discretization ~10⁻³ (n = 1200 trapezoid): a margin-chasing
+run (target +0.03) and the L = 0.42, 0.45 probes are in
+`sigma_t1c3_output.txt`. Honest status: float pilot; the theorem requires the
+certified pipeline of §6 with a total error budget below the final margin.
 
 ## 6. Certification design (if/where the LP clears 0)
 
